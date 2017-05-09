@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/login_back">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:text="注         册"
+            android:textSize="35sp"
+            android:textColor="#ffffff"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"/>
+        <TextView
+            android:text="@string/register_info"
+            android:textSize="10sp"
+            android:textColor="#ffffff"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"/>
+
+        <EditText
+            android:id="@+id/et_register_phone"
+            android:hint=" 手机号"
+            android:textColorHint="#b1c7c4c3"
+            android:paddingLeft="20dp"
+            android:phoneNumber="true"
+            android:layout_width="match_parent"
+            android:singleLine="true"
+            android:maxLength="11"
+            android:layout_height="35dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittext_back"/>
+        <EditText
+            android:id="@+id/et_register_psd"
+            android:hint=" 密码"
+            android:password="true"
+            android:singleLine="true"
+            android:textColorHint="#b1c7c4c3"
+            android:paddingLeft="20dp"
+            android:digits="qwertyuiopasdfghjklzxcvbnm0123456789"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittext_back"/>
+
+        <Button
+            android:id="@+id/bt_register_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/button_back"
+            android:text="立即注册"
+            android:textColor="#ffffff"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"/>
+    </LinearLayout>
+</ScrollView>

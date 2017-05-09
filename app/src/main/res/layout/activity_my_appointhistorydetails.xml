@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F0F3F6">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:background="#5888e7"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+            <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/img_appointhistoryList_back"
+                    android:src="@drawable/back01"/>
+            <TextView
+                    android:text="就诊信息"
+                    android:textSize="20sp"
+                    android:id="@+id/tv_my_appoint_list"
+                    android:textColor="#ffffff"
+                    android:layout_gravity="center_vertical"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_marginTop="2dp"
+                android:orientation="horizontal"
+                android:background="#fcfbfb"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+            <TextView
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="2dp"
+                    android:text="  预约医师 "
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                android:textColor="@color/black"
+                    android:id="@+id/tv_appointhistory_doctorName"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="right"
+                    android:layout_marginRight="13dp"
+                    android:text="预约医师"
+                    android:textSize="17sp"
+                    android:singleLine="true"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_marginTop="2dp"
+                android:orientation="horizontal"
+                android:background="#fcfbfb"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+            <TextView
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="2dp"
+                    android:text="  就诊时间 "
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                android:textColor="@color/black"
+                    android:id="@+id/tv_appointhistory_seeTime"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="right"
+                    android:layout_marginRight="13dp"
+                    android:text="就诊时间"
+                    android:textSize="17sp"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_marginTop="2dp"
+                android:orientation="horizontal"
+                android:background="#fcfbfb"
+            android:minHeight="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="2dp"
+                    android:text="  病症描述 "
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                android:textColor="@color/black"
+                    android:id="@+id/tv_appointhistory_disease"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="right"
+                    android:layout_marginRight="13dp"
+                    android:text="病症描述"
+                    android:textSize="17sp"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal"
+            android:background="#fcfbfb"
+            android:minHeight="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="2dp"
+                android:text="  医生诊断 "
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/tv_appointhistory_diagnose"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:gravity="right"
+                android:layout_marginRight="13dp"
+                android:text="医生诊断"
+                android:textSize="17sp"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_marginTop="2dp"
+                android:orientation="horizontal"
+                android:background="#fcfbfb"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+            <TextView
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="2dp"
+                    android:text="  预约排号 "
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                android:textColor="@color/black"
+                    android:id="@+id/tv_appointhistory_dNumber"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="right"
+                    android:layout_marginRight="13dp"
+                    android:text="预约排号"
+                    android:textSize="17sp"
+                    android:singleLine="true"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_marginTop="2dp"
+                android:orientation="horizontal"
+                android:background="#fcfbfb"
+            android:minHeight="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="2dp"
+                    android:text="  医师留言 "
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                android:textColor="@color/black"
+                    android:id="@+id/tv_appointhistory_doctorsay"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="right"
+                    android:layout_marginRight="13dp"
+                    android:text="医师留言"
+                    android:textSize="17sp"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal"
+            android:background="#fcfbfb"
+            android:minHeight="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="2dp"
+                android:text="  请求时间 "
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/tv_appointhistory_datetime"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:gravity="right"
+                android:layout_marginRight="13dp"
+                android:text="请求时间"
+                android:textSize="16sp"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

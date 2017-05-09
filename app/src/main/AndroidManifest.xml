@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zhuolang.fu.microdoctorclient">
+
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/app_name"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activity.StartActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.MainActivity"></activity>
+        <activity android:name=".activity.RegisterActivity"></activity>
+        <activity android:name=".activity.LoginActivity"></activity>
+        <activity android:name=".activity.MenuActivity"></activity>
+        <activity android:name=".activity.UpdatePswActivity"></activity>
+        <activity android:name=".activity.SettingsActivity"></activity>
+        <activity android:name=".activity.MyInfoActivity"></activity>
+        <activity android:name=".activity.UpdateMyInfoActivity"></activity>
+        <activity android:name=".activity.UpdatePhoneActivity"></activity>
+        <activity android:name=".activity.RegisterDoctorActivity"></activity>
+        <activity android:name=".activity.AllDoctorListActivity"></activity>
+        <activity android:name=".activity.DoctorDetailActivity"></activity>
+        <activity android:name=".activity.AgreeRegisterDoctotActivity"></activity>
+        <activity android:name=".activity.AppointmentDoctorOfficeActivity"></activity>
+        <activity android:name=".activity.AppointmentDoctorHospitalActivity"></activity>
+        <activity android:name=".activity.AppointmentDoctorListActivity"></activity>
+        <activity android:name=".activity.AppointDoctorInfoActivity"></activity>
+        <activity android:name=".activity.AppointSuccessActivity"></activity>
+        <activity android:name=".activity.MyNowAppointListActivity"></activity>
+        <activity android:name=".activity.MyAppointmentDetailActivity"></activity>
+        <activity android:name=".activity.MyAppointHistoryListActivity"></activity>
+        <activity android:name=".activity.MyAppointmentHistoryDetailActivity"></activity>
+        <activity android:name=".activity.HealthKnowledgeListActivity"></activity>
+
+
+    </application>
+
+</manifest>

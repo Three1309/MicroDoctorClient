@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" android:background="#f0f0f0">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@color/steelblue"
+        android:layout_width="match_parent"
+        android:layout_height="35dp">
+
+        <ImageView
+            android:id="@+id/healthknowledge_img_back"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/back01"
+            android:layout_width="60dp"
+            android:layout_height="25dp" />
+        <TextView
+            android:text="健康资讯"
+            android:textSize="20dp"
+            android:textColor="#fffff1"
+            android:layout_gravity="center_vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content" />
+
+        <TextView
+
+            android:layout_marginRight="5dp"
+            android:textColor="#fffff1"
+            android:layout_width="60dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <ListView
+        android:id="@+id/healthknowledge_xListView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="#00000000">
+    </ListView>
+    <!--
+    <com.zhuolang.fu.microdoctorclient.view.XListView
+        android:id="@+id/healthknowledge_xListView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="#00000000">
+    </com.zhuolang.fu.microdoctorclient.view.XListView>
+-->
+</LinearLayout>

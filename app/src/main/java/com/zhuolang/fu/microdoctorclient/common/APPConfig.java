@@ -1,0 +1,36 @@
+package com.zhuolang.fu.microdoctorclient.common;
+
+/**
+ * Created by wunaifu on 2017/4/13.
+ */
+public class APPConfig {
+//    private static String base_url="http://192.168.43.239:8080/MicroDoctorServer/";
+    private static String base_url="http://139.199.66.242:8080/MicroDoctorServer/";
+//    private static String base_url="http://10.97.59.66:8080/MicroDoctorServer/";
+//    private static String base_url="http://172.27.196.2:8080/MicroDoctorServer/";
+
+    public static String login = base_url + "login_user";
+    public static String register = base_url + "add_user";
+    public static String findUserByPhone = base_url + "finduser_byphone";
+    public static String updatePassword = base_url + "update_password";
+    public static String updatePhone = base_url + "update_phone";
+    public static String updateUser = base_url + "update_user";
+    public static String registerDoctor = base_url + "register_doctor";
+    public static String updateRegisterDoctor = base_url + "update_registerdoctor";
+    public static String findRegisterDoctor = base_url + "find_registerdoctor";
+    public static String agreeRegisterDoctor = base_url + "agree_registerdoctor";
+    public static String disagreeRegisterDoctor = base_url + "disagree_registerdoctor";
+    public static String findAllDoctor = base_url + "find_alldoctor";
+    public static String findAllOffice = base_url + "find_alloffice";
+    public static String findAllHospital = base_url + "find_allhospital";
+    public static String findDoctorByOfficeAndHospital = base_url + "finddoctor_byOfficeAndHospital";
+    public static String addAppointment = base_url + "add_appointment";
+    public static String findNowMyappointment = base_url + "find_myappointment";
+    public static String findMyappointmentHistory = base_url + "find_myappointment_history";
+
+    public static String IS_LOGIN = "is_login";
+    public static String ACCOUNT = "account";
+    public static String USERDATA = "userData";//获取当前用户的key
+    public static String TYPE = "userType";
+}
+

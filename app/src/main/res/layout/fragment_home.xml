@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#F0F3F6">
+
+    <LinearLayout
+        android:background="#e7ebef"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/image_item1"
+            android:layout_width="match_parent"
+            android:src="@drawable/homeitem02"
+            android:layout_height="178dp"
+            android:scaleType="fitXY"
+            android:layout_below="@+id/text_weiyi"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <LinearLayout
+            android:layout_marginTop="12dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/image_fhome_showdoctor"
+                    android:src="@drawable/rdoctor"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    android:layout_width="78dp"
+                    android:layout_height="78dp" />
+                <TextView
+                    android:text="医师展示"
+                    android:textSize="11dp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/image_fhome_appointmentdoctor"
+                    android:src="@drawable/rappointment"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    android:layout_width="78dp"
+                    android:layout_height="78dp" />
+                <TextView
+                    android:text="预约挂号"
+                    android:textSize="11dp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/image_fhome_mynowappointment"
+                    android:src="@drawable/rmyappointment"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    android:layout_width="78dp"
+                    android:layout_height="78dp" />
+                <TextView
+                    android:id="@+id/tv_homep_appointmine"
+                    android:text="我的预约"
+                    android:textSize="11dp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/image_fhome_appointhistory"
+                    android:src="@drawable/rmyask1"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    android:layout_width="78dp"
+                    android:layout_height="78dp" />
+                <TextView
+                    android:id="@+id/tv_homep_history"
+                    android:text="就诊历史"
+                    android:textSize="11dp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
+

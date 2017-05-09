@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#F0F3F6"
+        >
+        <!-- 全圆角-->
+        <LinearLayout
+            android:id="@+id/fprofile_ll_myinfo"
+            android:background="@drawable/single_layout_selector"
+            android:orientation="horizontal"
+            style="@style/wrap_layout"
+            android:layout_height="100dp">
+            <ImageView
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:src="@mipmap/user_icon"
+                android:layout_width="0dp"
+                android:layout_height="80dp" />
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:gravity="center_vertical"
+                    android:textSize="21sp"
+                    android:id="@+id/fprofile_tv_name"
+                    style="@style/usertext"
+                    android:text="姓名"/>
+                <TextView
+                    android:gravity="center_vertical"
+                    android:id="@+id/fprofile_tv_account"
+                    android:layout_gravity="center_vertical"
+                    style="@style/usertext"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp"
+                    android:text="账号：18219111626"/>
+                <TextView
+                    android:gravity="center_vertical"
+                    android:id="@+id/fprofile_tv_type"
+                    android:layout_gravity="center_vertical"
+                    style="@style/usertext"
+                    android:textColor="@color/gray"
+                    android:textSize="14sp"
+                    android:text="身份：普通用户"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/wrap_layout" >
+            <!-- 上圆角-->
+            <LinearLayout
+                android:id="@+id/fprofile_ll_setting"
+                style="@style/top_layout">
+                <TextView style="@style/usertext"
+                    android:text="我的设置" />
+                <ImageView style="@style/img_arrow"/>
+            </LinearLayout>
+
+            <!-- 分割线 -->
+            <View style="@style/bg_line"/>
+            <!-- 无圆角-->
+            <LinearLayout
+                android:id="@+id/fprofile_ll_updatephone"
+                style="@style/mid_layout">
+                <TextView
+                    style="@style/usertext"
+                    android:text="更换手机号" />
+                <ImageView style="@style/img_arrow"/>
+            </LinearLayout>
+            <View style="@style/bg_line"/>
+            <!-- 下圆角-->
+            <LinearLayout
+                android:id="@+id/fprofile_ll_updatepsw"
+                style="@style/bottom_layout">
+                <TextView
+                    style="@style/usertext"
+                    android:text="修改密码" />
+                <ImageView style="@style/img_arrow"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            style="@style/wrap_layout" >
+            <!-- 上圆角-->
+            <LinearLayout
+                android:id="@+id/fprofile_ll_registerdoc"
+                style="@style/top_layout">
+                <TextView
+                    android:id="@+id/fprofile_tv_regdoctor"
+                    style="@style/usertext"
+                    android:text="注册医师" />
+                <ImageView style="@style/img_arrow"/>
+            </LinearLayout>
+            <View style="@style/bg_line"/>
+            <LinearLayout
+                android:id="@+id/fprofile_ll_logout"
+                style="@style/mid_layout">
+                <TextView
+                    style="@style/usertext"
+                    android:text="切换账号" />
+                <ImageView style="@style/img_arrow"/>
+            </LinearLayout>
+            <View style="@style/bg_line"/>
+            <!-- 下圆角-->
+            <LinearLayout
+                android:id="@+id/fprofile_ll__finish"
+                style="@style/bottom_layout">
+                <TextView
+                    style="@style/usertext"
+                    android:text="退出系统" />
+                <ImageView style="@style/img_arrow"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+</FrameLayout>

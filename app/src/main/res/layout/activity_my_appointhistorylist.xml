@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_doctor_list_top"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="@color/steelblue"
+        android:layout_height="40dp">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="28dp"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/img_appointhistorylist_back"
+            android:src="@drawable/back01"/>
+        <TextView
+            android:text="就诊历史"
+            android:textSize="20sp"
+            android:id="@+id/tv_my_appoint_list"
+            android:textColor="#ffffff"
+            android:layout_gravity="center_vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <ListView
+        android:dividerHeight="5dp"
+        android:layout_marginTop="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lv_my_appointhistorylist_list"/>
+
+</LinearLayout>

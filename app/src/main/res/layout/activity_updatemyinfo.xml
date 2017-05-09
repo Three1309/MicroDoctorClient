@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#eaeaea">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@color/steelblue"
+        android:layout_width="match_parent"
+        android:layout_height="35dp">
+
+        <ImageView
+            android:id="@+id/updatemyinfo_img_back"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/back01"
+            android:layout_width="60dp"
+            android:layout_height="25dp" />
+        <TextView
+            android:text="个人信息"
+            android:textSize="20dp"
+            android:textColor="#fffff1"
+            android:layout_gravity="center_vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/updatemyinfo_et_updateinfo"
+            android:text="保存"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            android:textSize="20dp"
+            android:textColor="#fffff1"
+            android:layout_marginRight="4dp"
+            android:layout_width="60dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <ScrollView
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 全圆角-->
+            <LinearLayout
+
+                android:orientation="horizontal"
+                style="@style/wrap_layout"
+                android:layout_height="60dp">
+               <TextView
+                   android:id="@+id/updatemyinfo_tv_account"
+                   android:textSize="19sp"
+                   android:gravity="center"
+                   android:text="账号：18219111626"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/wrap_layout" >
+                <LinearLayout
+                    style="@style/single_layout">
+                    <EditText
+
+                        style="@style/usertext"
+                        android:background="@drawable/edittext_back"
+                        android:maxLength="10"
+                        android:id="@+id/updatemyinfo_et_name"
+                        android:hint="姓名" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                style="@style/wrap_layout" >
+                <!-- 上圆角-->
+                <LinearLayout
+                    style="@style/top_layout">
+
+                    <EditText
+                        style="@style/usertext"
+                        android:background="@drawable/edittext_back"
+                        android:maxLength="10"
+                        android:id="@+id/updatemyinfo_et_nickname"
+                        android:hint="昵称" />
+                </LinearLayout>
+                <View style="@style/bg_line"/>
+                <!-- 下圆角-->
+                <LinearLayout
+                    style="@style/bottom_layout">
+
+                    <EditText style="@style/usertext"
+                        android:background="@drawable/edittext_back"
+                        android:maxLength="3"
+                        android:digits="1234567890"
+                        android:id="@+id/updatemyinfo_et_age"
+                        android:hint="年龄" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/wrap_layout" >
+                <!-- 上圆角-->
+                <LinearLayout
+                    style="@style/top_layout">
+
+                    <EditText
+                        style="@style/usertext"
+                        android:background="@drawable/edittext_back"
+                        android:maxLength="1"
+                        android:id="@+id/updatemyinfo_et_gender"
+                        android:hint="性别(男或女)" />
+                </LinearLayout>
+                <View style="@style/bg_line"/>
+                <!-- 下圆角-->
+                <LinearLayout
+                    style="@style/bottom_layout">
+                    
+                    <EditText
+                        style="@style/usertext"
+                        android:background="@drawable/edittext_back"
+                        android:maxLength="11"
+                        android:id="@+id/updatemyinfo_et_address"
+                        android:hint="地址" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/wrap_layout" >
+                <!-- 上圆角-->
+                <LinearLayout
+                    style="@style/top_layout">
+                   
+                    <EditText style="@style/usertext"
+                        android:background="@drawable/edittext_back"
+                        android:maxLength="45"
+                        android:id="@+id/updatemyinfo_et_signature"
+                        android:hint="个性签名" />
+                </LinearLayout>
+                <View style="@style/bg_line"/>
+                <!-- 下圆角-->
+                <LinearLayout
+                    style="@style/bottom_layout">
+                    
+                    <EditText
+                        style="@style/usertext"
+                        android:background="@drawable/edittext_back"
+                        android:maxLength="45"
+                        android:id="@+id/updatemyinfo_et_introduction"
+                        android:hint="个人简介" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/updatemyinfo_ll_one"
+                style="@style/wrap_layout" >
+                <!-- 上圆角-->
+                <LinearLayout
+                    style="@style/top_layout">
+                    
+                    <EditText style="@style/usertext"
+                        android:background="@drawable/edittext_back"
+                        android:maxLength="25"
+                        android:id="@+id/updatemyinfo_et_hospital"
+                        android:hint="所属医院" />
+                </LinearLayout>
+                <View style="@style/bg_line"/>
+                <!-- 下圆角-->
+                <LinearLayout
+                    style="@style/bottom_layout">
+                    
+                    <EditText
+                        style="@style/usertext"
+                        android:background="@drawable/edittext_back"
+                        android:maxLength="11"
+                        android:id="@+id/updatemyinfo_et_office"
+                        android:hint="所属科室" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

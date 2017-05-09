@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#eaeaea">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@color/steelblue"
+        android:layout_width="match_parent"
+        android:layout_height="35dp">
+
+        <ImageView
+            android:id="@+id/amyinfo_img_back"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/back01"
+            android:layout_width="60dp"
+            android:layout_height="25dp" />
+        <TextView
+            android:text="个人信息"
+            android:textSize="20dp"
+            android:textColor="#fffff1"
+            android:layout_gravity="center_vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/amyinfo_tv_updateinfo"
+            android:text="修改"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            android:textSize="20dp"
+            android:layout_marginRight="5dp"
+            android:textColor="#fffff1"
+            android:layout_width="60dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <ScrollView
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 全圆角-->
+            <LinearLayout
+
+                android:orientation="horizontal"
+                style="@style/wrap_layout"
+                android:layout_height="60dp">
+               <TextView
+                   android:id="@+id/amyinfo_tv_account"
+                   android:textSize="19sp"
+                   android:gravity="center"
+                   android:text="账号：18219111626"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/wrap_layout" >
+                <!-- 上圆角-->
+                <LinearLayout
+                    style="@style/top_layout">
+                    <TextView style="@style/usertext"
+                        android:textColor="@color/gray"
+                        android:text="姓名" />
+                    <TextView style="@style/usertext"
+                        android:id="@+id/amyinfo_tv_name"
+                        android:gravity="right"
+                        android:text="姓名" />
+                </LinearLayout>
+                <View style="@style/bg_line"/>
+                <!-- 下圆角-->
+                <LinearLayout
+                    style="@style/bottom_layout">
+                    <TextView
+                        style="@style/usertext"
+                        android:textColor="@color/gray"
+                        android:text="昵称" />
+                    <TextView
+                        style="@style/usertext"
+                        android:id="@+id/amyinfo_tv_nickname"
+                        android:gravity="right"
+                        android:text="昵称" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/wrap_layout" >
+                <!-- 上圆角-->
+                <LinearLayout
+                    style="@style/top_layout">
+                    <TextView style="@style/usertext"
+                        android:textColor="@color/gray"
+                        android:text="年龄" />
+                    <TextView style="@style/usertext"
+                        android:id="@+id/amyinfo_tv_age"
+                        android:gravity="right"
+                        android:text="年龄" />
+                </LinearLayout>
+                <View style="@style/bg_line"/>
+                <!-- 下圆角-->
+                <LinearLayout
+                    style="@style/bottom_layout">
+                    <TextView
+                        style="@style/usertext"
+                        android:textColor="@color/gray"
+                        android:text="性别" />
+                    <TextView
+                        style="@style/usertext"
+                        android:id="@+id/amyinfo_tv_gender"
+                        android:gravity="right"
+                        android:text="性别" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/wrap_layout" >
+                <!-- 上圆角-->
+                <LinearLayout
+                    style="@style/top_layout">
+                    <TextView style="@style/usertext"
+                        android:textColor="@color/gray"
+                        android:text="手机" />
+                    <TextView style="@style/usertext"
+                        android:id="@+id/amyinfo_tv_phone"
+                        android:gravity="right"
+                        android:text="手机" />
+                </LinearLayout>
+                <View style="@style/bg_line"/>
+                <!-- 下圆角-->
+                <LinearLayout
+                    style="@style/bottom_layout">
+                    <TextView
+                        style="@style/usertext"
+                        android:textColor="@color/gray"
+                        android:text="地址" />
+                    <TextView
+                        style="@style/usertext"
+                        android:id="@+id/amyinfo_tv_address"
+                        android:gravity="right"
+                        android:text="地址" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/wrap_layout" >
+                <!-- 上圆角-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/top_layout">
+                    <TextView style="@style/usertext"
+                        android:textColor="@color/gray"
+                        android:text="个性签名" />
+                    <TextView
+                        style="@style/usertext"
+                        android:id="@+id/amyinfo_tv_signature"
+                        android:maxLength="45"
+                        android:singleLine="false"
+                        android:gravity="right"
+                        android:text="个性签名" />
+                </LinearLayout>
+                <View style="@style/bg_line"/>
+                <!-- 下圆角-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/bottom_layout">
+                    <TextView
+                        style="@style/usertext"
+                        android:textColor="@color/gray"
+
+                        android:text="个人简介" />
+                    <TextView
+                        style="@style/usertext"
+                        android:id="@+id/amyinfo_tv_introduction"
+                        android:maxLength="45"
+                        android:singleLine="false"
+                        android:gravity="right"
+                        android:text="个人简介" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/amyinfo_ll_one"
+                style="@style/wrap_layout" >
+                <!-- 上圆角-->
+                <LinearLayout
+                    style="@style/top_layout">
+                    <TextView style="@style/usertext"
+                        android:textColor="@color/gray"
+                        android:text="所属医院" />
+                    <TextView style="@style/usertext"
+                        android:id="@+id/amyinfo_tv_hospital"
+                        android:gravity="right"
+                        android:text="所属医院" />
+                </LinearLayout>
+                <View style="@style/bg_line"/>
+                <!-- 下圆角-->
+                <LinearLayout
+                    style="@style/bottom_layout">
+                    <TextView
+                        style="@style/usertext"
+                        android:textColor="@color/gray"
+                        android:text="所属科室" />
+                    <TextView
+                        style="@style/usertext"
+                        android:id="@+id/amyinfo_tv_office"
+                        android:gravity="right"
+                        android:text="所属科室" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/amyinfo_ll_two"
+                style="@style/wrap_layout" >
+                <!-- 上圆角-->
+                <LinearLayout
+                    style="@style/top_layout">
+                    <TextView style="@style/usertext"
+                        android:textColor="@color/gray"
+                        android:text="接诊量" />
+                    <TextView style="@style/usertext"
+                        android:id="@+id/amyinfo_tv_amount"
+                        android:gravity="right"
+                        android:text="接诊量" />
+                </LinearLayout>
+                <View style="@style/bg_line"/>
+                <!-- 下圆角-->
+                <LinearLayout
+                    style="@style/bottom_layout">
+                    <TextView
+                        style="@style/usertext"
+                        android:textColor="@color/gray"
+                        android:text="好评数" />
+                    <TextView
+                        style="@style/usertext"
+                        android:id="@+id/amyinfo_tv_likenum"
+                        android:gravity="right"
+                        android:text="好评数" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
