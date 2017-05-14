@@ -95,7 +95,7 @@ public class MyAppointListAdapter extends BaseAdapter {
 //        holder.time.setText(TimeUtil.dateToString(list.get(position).getSeeTime()));
         Date date = TimeUtil.longToDateNoTime(list.get(position).getSeeTime());
 //        Date date1 = TimeUtil.stringToDate(list.get(position).getDateTime());
-        holder.time.setText(TimeUtil.dateToStrNoTime(date));
+        holder.time.setText("预约时间："+TimeUtil.dateToStrNoTime(date));
         holder.number.setText("预约排号："+list.get(position).getdNumber());
         holder.doctor_name.setOnClickListener(new View.OnClickListener() {
             @Override

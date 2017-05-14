@@ -5,8 +5,8 @@ package com.zhuolang.fu.microdoctorclient.common;
  */
 public class APPConfig {
 //    private static String base_url="http://192.168.43.239:8080/MicroDoctorServer/";
-    private static String base_url="http://139.199.66.242:8080/MicroDoctorServer/";
-//    private static String base_url="http://10.97.59.66:8080/MicroDoctorServer/";
+//    private static String base_url="http://139.199.66.242:8080/MicroDoctorServer/";
+    private static String base_url="http://119.29.191.73:8080/MicroDoctorServer/";
 //    private static String base_url="http://172.27.196.2:8080/MicroDoctorServer/";
 
     public static String login = base_url + "login_user";
@@ -27,6 +27,12 @@ public class APPConfig {
     public static String addAppointment = base_url + "add_appointment";
     public static String findNowMyappointment = base_url + "find_myappointment";
     public static String findMyappointmentHistory = base_url + "find_myappointment_history";
+    public static String updateDoctorlikes = base_url + "update_doctorlikes";
+    public static String likesOrNot = base_url + "likes_ornot";
+    public static String findDoctorApptm = base_url + "find_apptmbydocId";
+    public static String updateDoctorsay = base_url + "update_apptmdoctorsay";
+    public static String updateDiagnose = base_url + "update_apptmdiagnose";
+    public static String findDoctSeeHistory = base_url + "find_doctseehistory";
 
     public static String IS_LOGIN = "is_login";
     public static String ACCOUNT = "account";

@@ -4,13 +4,16 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="#F0F3F6"
         >
-        
+
         <LinearLayout
             style="@style/wrap_layout" >
             <!-- 上圆角-->
@@ -48,38 +51,37 @@
 
 
         <LinearLayout
+            android:id="@+id/ll_fcalendar_doctormodle"
             style="@style/wrap_layout" >
             <!-- 上圆角-->
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:text="医师权限"
+                android:textSize="10sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <View style="@style/bg_line"/>
             <LinearLayout
-                android:id="@+id/fcalendar_ll_registerdoc"
+                android:id="@+id/fcalendar_ll_appointmentme"
                 style="@style/top_layout">
                 <TextView
                     android:id="@+id/fcalendar_tv_regdoctor"
                     style="@style/usertext"
-                    android:text="注册医师" />
-                <ImageView style="@style/img_arrow"/>
-            </LinearLayout>
-            <View style="@style/bg_line"/>
-            <LinearLayout
-                android:id="@+id/fcalendar_ll_logout"
-                style="@style/mid_layout">
-                <TextView
-                    style="@style/usertext"
-                    android:text="切换账号" />
+                    android:text="预约我的" />
                 <ImageView style="@style/img_arrow"/>
             </LinearLayout>
             <View style="@style/bg_line"/>
             <!-- 下圆角-->
             <LinearLayout
-                android:id="@+id/fcalendar_ll__finish"
+                android:id="@+id/fcalendar_ll_seehistory"
                 style="@style/bottom_layout">
                 <TextView
                     style="@style/usertext"
-                    android:text="退出系统" />
+                    android:text="看诊历史" />
                 <ImageView style="@style/img_arrow"/>
             </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>
-
+    </ScrollView>
 </FrameLayout>

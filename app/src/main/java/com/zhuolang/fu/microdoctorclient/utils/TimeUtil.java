@@ -121,4 +121,18 @@ public class TimeUtil {
         }
         return date;
     }
+    public static Date longToDate1(Long dateStr){
+        Date date = new Date(dateStr);
+        //注意format的格式要与日期String的格式相匹配
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
+            date = sdf.parse(dateStr.toString());
+//            date = sdf.format(dateStr.toString());
+            System.out.println(date.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return date;
+    }
 }

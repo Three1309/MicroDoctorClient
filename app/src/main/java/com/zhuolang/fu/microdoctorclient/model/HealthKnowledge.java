@@ -1,5 +1,7 @@
 package com.zhuolang.fu.microdoctorclient.model;
 
+import org.w3c.dom.Text;
+
 import java.sql.Timestamp;
 
 /**
@@ -12,28 +14,11 @@ public class HealthKnowledge {
     private String description;//描述
     private String img;//图片
     private String message;//资讯内容
-    private int infoclass;//分类
+    private int askclass;//分类
     private int count ;//访问次数
     private int rcount;//评论读数
     private int fcount;//收藏数
     private long time;//发布时间
-
-    @Override
-    public String toString() {
-        return "HealthKnowledge{" +
-                "id=" + id +
-                ", keywords='" + keywords + '\'' +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", img='" + img + '\'' +
-                ", message='" + message + '\'' +
-                ", infoclass=" + infoclass +
-                ", count=" + count +
-                ", rcount=" + rcount +
-                ", fcount=" + fcount +
-                ", time=" + time +
-                '}';
-    }
 
     public long getId() {
         return id;
@@ -83,12 +68,12 @@ public class HealthKnowledge {
         this.message = message;
     }
 
-    public int getInfoclass() {
-        return infoclass;
+    public int getAskclass() {
+        return askclass;
     }
 
-    public void setInfoclass(int infoclass) {
-        this.infoclass = infoclass;
+    public void setAskclass(int askclass) {
+        this.askclass = askclass;
     }
 
     public int getCount() {

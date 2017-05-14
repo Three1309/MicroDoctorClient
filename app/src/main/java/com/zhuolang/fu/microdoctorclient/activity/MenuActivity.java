@@ -16,6 +16,7 @@ import com.zhuolang.fu.microdoctorclient.R;
 import com.zhuolang.fu.microdoctorclient.common.APPConfig;
 import com.zhuolang.fu.microdoctorclient.fragment.CalendarFragment;
 import com.zhuolang.fu.microdoctorclient.fragment.HomeFragment;
+import com.zhuolang.fu.microdoctorclient.fragment.HomeFragmentTab;
 import com.zhuolang.fu.microdoctorclient.fragment.ProfileFragment;
 import com.zhuolang.fu.microdoctorclient.fragment.SettingsFragment;
 import com.zhuolang.fu.microdoctorclient.utils.OkHttpUtils;
@@ -57,8 +58,9 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
         mContext = this;
         setUpMenu();
         if( savedInstanceState == null )
-            changeFragment(new HomeFragment());
+            changeFragment(new HomeFragmentTab());
     }
+
     private void saveUserInfo(String phone){
         final List<OkHttpUtils.Param> list = new ArrayList<OkHttpUtils.Param>();
         OkHttpUtils.Param phoneParam = new OkHttpUtils.Param("phone",phone);
@@ -87,6 +89,7 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
             }
         }).start();
     }
+
     private void setUpMenu() {
 
         // attach to current activity;
@@ -140,7 +143,7 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
     public void onClick(View view) {
 
         if (view == itemHome){
-            changeFragment(new HomeFragment());
+            changeFragment(new HomeFragmentTab());
         }else if (view == itemProfile){
             changeFragment(new ProfileFragment());
         }else if (view == itemCalendar){

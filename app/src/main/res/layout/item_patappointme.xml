@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:text="预约者："/>
+        <TextView
+            android:id="@+id/tv_item_item_apponintme_patname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:text="刘生"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp">
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="症状："
+                android:textStyle="bold"
+                android:textColor="@color/red"
+                android:textSize="13sp"/>
+            <TextView
+                android:id="@+id/tv_item_item_apponintme_disease"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textSize="14sp"
+                android:layout_marginBottom="2dp"
+                android:maxLines="5"
+                android:text="发烧，流鼻涕，鼻塞。。。"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textSize="11sp"
+                    android:id="@+id/tv_item_item_apponintme_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="预约时间：2016-11-11"/>
+                <TextView
+                    android:gravity="right"
+                    android:layout_marginRight="30dp"
+                    android:layout_weight="1"
+                    android:id="@+id/tv_item_apponintme_number"
+                    android:layout_width="0dp"
+                    android:textSize="12sp"
+                    android:layout_height="wrap_content"
+                    android:text="预约号：10"/>
+            </LinearLayout>
+
+        </LinearLayout>
+<!--
+        <LinearLayout
+            android:gravity="right"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_item_item_apponintme_doctorsay"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:text="留言"
+                android:padding="3dp"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textview_selector"/>
+            <TextView
+                android:id="@+id/tv_item_item_apponintme_see"
+                android:layout_marginTop="3dp"
+                android:textSize="13sp"
+                android:padding="3dp"
+                android:gravity="center"
+                android:text="看诊"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textview_selector"/>
+        </LinearLayout>
+-->
+    </LinearLayout>
+
+</LinearLayout>

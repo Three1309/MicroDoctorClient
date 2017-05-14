@@ -3,6 +3,9 @@
     package="com.zhuolang.fu.microdoctorclient">
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"></uses-permission>
+    <uses-permission android:name="android.permission.SEND_SMS"></uses-permission>
+    <uses-permission android:name="android.permission.READ_SMS"></uses-permission>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application
@@ -41,6 +44,11 @@
         <activity android:name=".activity.MyAppointHistoryListActivity"></activity>
         <activity android:name=".activity.MyAppointmentHistoryDetailActivity"></activity>
         <activity android:name=".activity.HealthKnowledgeListActivity"></activity>
+        <activity android:name=".activity.HealthDetailActivity"></activity>
+        <activity android:name=".activity.AppointmentMeListActivity"></activity>
+        <activity android:name=".activity.DoctorAppointmentHistoryListActivity"></activity>
+        <activity android:name=".activity.PatientAppointmentDoctorDetailActivity"></activity>
+        <activity android:name=".activity.AppointmentMeHistoryListActivity"></activity>
 
 
     </application>

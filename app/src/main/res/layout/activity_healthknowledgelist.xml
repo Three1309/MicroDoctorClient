@@ -35,17 +35,9 @@
 
     </LinearLayout>
     <ListView
-        android:id="@+id/healthknowledge_xListView"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:cacheColorHint="#00000000">
+        android:dividerHeight="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/healthknowledge_xListView">
     </ListView>
-    <!--
-    <com.zhuolang.fu.microdoctorclient.view.XListView
-        android:id="@+id/healthknowledge_xListView"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:cacheColorHint="#00000000">
-    </com.zhuolang.fu.microdoctorclient.view.XListView>
--->
 </LinearLayout>

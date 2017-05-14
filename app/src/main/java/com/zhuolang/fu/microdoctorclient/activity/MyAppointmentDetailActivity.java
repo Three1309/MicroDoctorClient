@@ -52,7 +52,9 @@ public class MyAppointmentDetailActivity extends Activity {
         tv_appoint_disease.setText(appointmentDto.getDisease());
         tv_appoint_dNumber.setText("" + appointmentDto.getdNumber());
         tv_appoint_doctorsay.setText(appointmentDto.getDoctorSay());
-        tv_appoint_datetime.setText(TimeUtil.dateToString(TimeUtil.longToDate(appointmentDto.getDateTime())));
+
+        Date date1 = TimeUtil.longToDate(appointmentDto.getDateTime()+"");
+        tv_appoint_datetime.setText(TimeUtil.dateToString(date1));
 
         imageViewback.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -24,7 +24,7 @@ public class StartActivity extends Activity{
                 boolean is_login= SharedPrefsUtil.getValue(StartActivity.this, APPConfig.IS_LOGIN,false);
                 Intent intent = new Intent();
                 if (is_login)
-                    intent.setClass(StartActivity.this, MenuActivity.class);
+                    intent.setClass(StartActivity.this, MainActivity.class);
                 else
                     intent.setClass(StartActivity.this, LoginActivity.class);
                 startActivity(intent);

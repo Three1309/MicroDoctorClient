@@ -98,6 +98,7 @@ public class MyAppointHistoryListActivity extends Activity implements AdapterVie
 //        Log.d("testRun", "doctorDtoStr==========" + doctorDtoStr);
         intent.putExtra("doctorDtoStr", doctorDtoStr);
         startActivity(intent);
+        finish();
     }
 
     private Handler handler = new Handler() {

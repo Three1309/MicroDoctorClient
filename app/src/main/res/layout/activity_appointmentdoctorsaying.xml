@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eaeaea">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@color/steelblue"
+        android:layout_width="match_parent"
+        android:layout_height="35dp">
+
+        <ImageView
+            android:id="@+id/image_tv_appointment_doctorsaying_back"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="2dp"
+            android:src="@drawable/back01"
+            android:layout_width="60dp"
+            android:layout_height="25dp" />
+        <TextView
+            android:text="预约详情"
+            android:textSize="21sp"
+            android:textColor="#fffff1"
+            android:layout_gravity="center_vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_userinfo_update"
+            android:text=""
+            android:textSize="19sp"
+            android:textColor="#fffff1"
+            android:layout_gravity="center_vertical"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#eaeaea">
+
+    <LinearLayout
+        style="@style/wrap_layout" >
+        <!-- 上圆角-->
+        <LinearLayout
+            style="@style/top_layout">
+            <TextView style="@style/usertext"
+                android:textColor="@color/gray"
+                android:text="姓名" />
+            <TextView style="@style/usertext"
+                android:id="@+id/tv_appointment_doctorsaying_patientname"
+                android:gravity="right"
+                android:text="姓名" />
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+        <!-- 分割线 -->
+
+        <!-- 无圆角-->
+        <LinearLayout
+            style="@style/mid_layout">
+            <TextView style="@style/usertext"
+                android:textColor="@color/gray"
+                android:text="排号" />
+            <TextView style="@style/usertext"
+                android:id="@+id/tv_appointment_doctorsaying_dnumber"
+                android:gravity="right"
+                android:text="0" />
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+        <!-- 分割线 -->
+
+        <!-- 无圆角-->
+        <LinearLayout
+            style="@style/mid_layout">
+            <TextView style="@style/usertext"
+                android:textColor="@color/gray"
+                android:text="症状" />
+            <TextView style="@style/usertext"
+                android:id="@+id/tv_appointment_doctorsaying_disease"
+                android:gravity="right"
+                android:text="感冒" />
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+        <!-- 分割线 -->
+        <!-- 无圆角-->
+        <LinearLayout
+            style="@style/mid_layout">
+            <TextView style="@style/usertext"
+                android:textColor="@color/gray"
+                android:text="医师留言" />
+            <TextView style="@style/usertext"
+                android:id="@+id/tv_appointment_doctorsaying_doctorsays"
+                android:gravity="right"
+                android:text="" />
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+        <!-- 无圆角-->
+        <LinearLayout
+            style="@style/mid_layout">
+            <TextView style="@style/usertext"
+                android:textColor="@color/gray"
+                android:text="预约时间" />
+            <TextView style="@style/usertext"
+                android:id="@+id/tv_appointment_doctorsaying_datetime"
+                android:gravity="right"
+                android:text="2016-01-01" />
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+        <!-- 下圆角-->
+        <LinearLayout
+            style="@style/bottom_layout">
+            <TextView
+                style="@style/usertext"
+                android:textColor="@color/gray"
+                android:text="请求时间" />
+            <TextView
+                style="@style/usertext"
+                android:id="@+id/tv_appointment_doctorsaying_time"
+                android:gravity="right"
+                android:text="2016-01-01 10:10:10" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        style="@style/wrap_layout" >
+        <LinearLayout
+            style="@style/single_layout">
+            <EditText
+
+                style="@style/usertext"
+                android:background="@drawable/edittext_back"
+                android:gravity="center"
+                android:id="@+id/et_appointment_doctorsaying_info"
+                android:hint="请输入信息（预约留言或就诊信息），填写完毕点击按钮即可留言给预约病人或完成病人就诊。" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/bt_appointment_doctorsaying_doctorsay"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/button_back"
+            android:text="留言"
+            android:textColor="#ffffff"
+            android:layout_marginTop="20dp" />
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/bt_appointment_doctorsaying_see"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/button_back"
+            android:text="看诊"
+            android:textColor="#ffffff"
+            android:layout_marginTop="20dp" />
+    </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+
+</LinearLayout>

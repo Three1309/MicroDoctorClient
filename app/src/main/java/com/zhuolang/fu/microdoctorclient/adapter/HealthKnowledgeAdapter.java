@@ -12,7 +12,9 @@ import com.zhuolang.fu.microdoctorclient.common.APPConfig;
 import com.zhuolang.fu.microdoctorclient.model.HealthKnowledge;
 import com.zhuolang.fu.microdoctorclient.model.UserInfo;
 import com.zhuolang.fu.microdoctorclient.utils.SharedPrefsUtil;
+import com.zhuolang.fu.microdoctorclient.utils.TimeUtil;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -86,9 +88,11 @@ public class HealthKnowledgeAdapter extends BaseAdapter{
 //        }
 
         if (list.size() > 0) {
-            holder.tv_title.setText("");
-            holder.tv_time.setText("");
-            holder.tv_description.setText("描述：");
+            holder.tv_title.setText(list.get(position).getTitle());
+            Date date = TimeUtil.longToDate(list.get(position).getTime()+"");
+            holder.tv_time.setText(TimeUtil.dateToString(date)+"");
+//            holder.tv_time.setText(
+            holder.tv_description.setText("描述："+list.get(position).getDescription());
         }
 
         return convertView;
