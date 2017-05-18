@@ -110,7 +110,7 @@ public class AppointmentDoctorListActivity extends Activity implements AdapterVi
         intent.putExtra("doctorStr", doctorDtoStr);
 //        intent.putExtra("flag", "false");
         startActivity(intent);
-        finish();
+//        finish();
     }
 
     private Handler handler = new Handler() {

@@ -20,6 +20,7 @@ import com.zhuolang.fu.microdoctorclient.activity.MenuActivity;
 import com.zhuolang.fu.microdoctorclient.activity.MyAppointHistoryListActivity;
 import com.zhuolang.fu.microdoctorclient.activity.MyInfoActivity;
 import com.zhuolang.fu.microdoctorclient.activity.MyNowAppointListActivity;
+import com.zhuolang.fu.microdoctorclient.activity.ShareHouseActivity;
 import com.zhuolang.fu.microdoctorclient.common.APPConfig;
 import com.zhuolang.fu.microdoctorclient.model.UserInfo;
 import com.zhuolang.fu.microdoctorclient.utils.SharedPrefsUtil;
@@ -36,6 +37,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private ImageView img_appointmentdoctor;
     private ImageView img_mynowappointment;
     private ImageView img_myappointmenthist;
+    private ImageView img_sharehouse;
 
     private String userDataStr;
     private UserInfo userInfo;
@@ -61,7 +63,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         img_appointmentdoctor = (ImageView) view.findViewById(R.id.image_fhome_appointmentdoctor);
         img_mynowappointment = (ImageView) view.findViewById(R.id.image_fhome_mynowappointment);
         img_myappointmenthist = (ImageView) view.findViewById(R.id.image_fhome_appointhistory);
+        img_sharehouse = (ImageView) view.findViewById(R.id.image_fhome_sharehouse);
 
+        img_sharehouse.setOnClickListener(this);
         img_myappointmenthist.setOnClickListener(this);
         img_mynowappointment.setOnClickListener(this);
         img_showdoctor.setOnClickListener(this);
@@ -112,6 +116,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 Intent intent3 = new Intent();
                 intent3.setClass(getActivity(), MyAppointHistoryListActivity.class);
                 startActivity(intent3);
+                break;
+            case R.id.image_fhome_sharehouse:
+                Intent intent4 = new Intent();
+                intent4.setClass(getActivity(), ShareHouseActivity.class);
+                startActivity(intent4);
                 break;
 
         }

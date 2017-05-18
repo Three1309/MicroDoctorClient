@@ -31,119 +31,59 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="30dp"
-        android:orientation="horizontal"
-        android:background="#fcfbfb"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
-
-        <TextView
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="2dp"
-            android:text="  我的名字 "
-            android:textSize="18dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:id="@+id/tv_appoint_user_nam"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:gravity="right"
-            android:layout_marginRight="13dp"
-            android:text="昵称"
-            android:textSize="18dp"
-            android:singleLine="true"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        android:background="#fcfbfb"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
-
-        <TextView
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="2dp"
-            android:text="  预约的医生 "
-            android:textSize="18dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:id="@+id/tv_appoint_doctornam"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:gravity="right"
-            android:layout_marginRight="13dp"
-            android:text="昵称"
-            android:textSize="18dp"
-            android:singleLine="true"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        android:background="#fcfbfb"
-        android:minHeight="40dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="2dp"
-            android:text="  病症 "
-            android:textSize="18dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:id="@+id/tv_appoint_dis"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:gravity="right"
-            android:layout_marginRight="13dp"
-            android:text="昵称"
-            android:textSize="18dp"
-            android:singleLine="false"
-            android:maxLength="63"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        android:background="#fcfbfb"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
-
-        <TextView
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="2dp"
-            android:text="  预约的时间 "
-            android:textSize="18dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:id="@+id/tv_appoint_seetim"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:gravity="right"
-            android:layout_marginRight="13dp"
-            android:text="昵称"
-            android:textSize="18dp"
-            android:singleLine="true"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content" />
-
+        style="@style/wrap_layout" >
+        <!-- 上圆角-->
+        <LinearLayout
+            style="@style/top_layout">
+            <TextView style="@style/usertext"
+                android:textColor="@color/gray"
+                android:text="我的名字" />
+            <TextView style="@style/usertext"
+                android:id="@+id/tv_appoint_user_nam"
+                android:gravity="right"
+                android:text="姓名" />
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+        <!-- 下圆角-->
+        <LinearLayout
+            style="@style/mid_layout">
+            <TextView
+                style="@style/usertext"
+                android:textColor="@color/gray"
+                android:text="预约的医师" />
+            <TextView
+                style="@style/usertext"
+                android:id="@+id/tv_appoint_doctornam"
+                android:gravity="right"
+                android:text="王生" />
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+        <LinearLayout
+            style="@style/mid_layout">
+            <TextView style="@style/usertext"
+                android:textColor="@color/gray"
+                android:text="预约的时间" />
+            <TextView style="@style/usertext"
+                android:id="@+id/tv_appoint_seetim"
+                android:gravity="right"
+                android:text="2016-10-10" />
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+        <!-- 下圆角-->
+        <LinearLayout
+            android:layout_height="wrap_content"
+            style="@style/bottom_layout">
+            <TextView
+                style="@style/usertext"
+                android:textColor="@color/gray"
+                android:text="病症" />
+            <TextView
+                android:layout_height="wrap_content"
+                style="@style/usertext"
+                android:id="@+id/tv_appoint_dis"
+                android:gravity="right"
+                android:text="病症" />
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

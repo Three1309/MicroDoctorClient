@@ -53,7 +53,7 @@ public class CalendarFragment extends Fragment  implements View.OnClickListener 
 
     private void initView(View view){
         userDataStr= SharedPrefsUtil.getValue(getActivity(), APPConfig.USERDATA, "");
-        Log.d("activityID", "这个CalendarFragment ----- : " + userDataStr);
+        Log.d("testrun", "这个CalendarFragment ----- : " + userDataStr);
         userInfo=gson.fromJson(userDataStr,UserInfo.class);
 
         ll_healthknowledge = (LinearLayout) view.findViewById(R.id.fcalendar_ll_health);
@@ -65,8 +65,8 @@ public class CalendarFragment extends Fragment  implements View.OnClickListener 
         ll_appointmentme.setOnClickListener(this);
         ll_mysee.setOnClickListener(this);
         ll_healthknowledge.setOnClickListener(this);
-
-        if (userInfo.getType() != 1) {
+        if(!SharedPrefsUtil.getValue(getActivity(), APPConfig.TYPE, "").equals("1")){
+//        if (userInfo.getType() != 1) {
             ll_doctorq.setVisibility(View.GONE);
         }
     }

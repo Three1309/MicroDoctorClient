@@ -18,6 +18,7 @@ import com.zhuolang.fu.microdoctorclient.R;
 import com.zhuolang.fu.microdoctorclient.common.APPConfig;
 import com.zhuolang.fu.microdoctorclient.utils.OkHttpUtils;
 import com.zhuolang.fu.microdoctorclient.utils.SharedPrefsUtil;
+import com.zhuolang.fu.microdoctorclient.view.CustomWaitDialog;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;
@@ -77,45 +78,49 @@ public class RegisterActivity extends Activity{
             public void onClick(View v) {
 //                getNumber();
                 phone = et_phone.getText().toString().trim();
+                if (phone.equals("")){
+                    Toast.makeText(RegisterActivity.this,"手机号不能为空！",Toast.LENGTH_SHORT).show();
+                }else {
+                    final String Url = "http://106.ihuyi.cn/webservice/sms.php?method=Submit";
+                    mobile_code = (int)((Math.random()*9+1)*100000);
 
-                final String Url = "http://106.ihuyi.cn/webservice/sms.php?method=Submit";
-                mobile_code = (int)((Math.random()*9+1)*100000);
+//                String content = new String("您的微医注册验证码是：" + mobile_code + "。请不要把验证码泄露给其他人。");
+                    String content = new String("您的微医注册验证码是：" + mobile_code);
+                    final List<OkHttpUtils.Param> list1 = new ArrayList<OkHttpUtils.Param>();
+                    OkHttpUtils.Param apiidParam = new OkHttpUtils.Param("account", "C62138766");//查看用户名请登录用户中心->验证码、通知短信->帐户及签名设置->APIID
+                    OkHttpUtils.Param apikeyParam = new OkHttpUtils.Param("password", "f2f3a56a1bd4de09fd0b4fb5c7f6ba4a");
+                    //查看密码请登录用户中心->验证码、通知短信->帐户及签名设置->APIKEY
+                    OkHttpUtils.Param phoneParam = new OkHttpUtils.Param("mobile", phone);
+                    OkHttpUtils.Param contentParam = new OkHttpUtils.Param("content", content);
+                    list1.add(apiidParam);
+                    list1.add(apikeyParam);
+                    list1.add(phoneParam);
+                    list1.add(contentParam);
 
-                String content = new String("您的验证码是：" + mobile_code + "。请不要把验证码泄露给其他人。");
-
-                final List<OkHttpUtils.Param> list1 = new ArrayList<OkHttpUtils.Param>();
-                OkHttpUtils.Param apiidParam = new OkHttpUtils.Param("account", "C62138766");//查看用户名请登录用户中心->验证码、通知短信->帐户及签名设置->APIID
-                OkHttpUtils.Param apikeyParam = new OkHttpUtils.Param("password", "f2f3a56a1bd4de09fd0b4fb5c7f6ba4a");
-                //查看密码请登录用户中心->验证码、通知短信->帐户及签名设置->APIKEY
-                OkHttpUtils.Param phoneParam = new OkHttpUtils.Param("mobile", phone);
-                OkHttpUtils.Param contentParam = new OkHttpUtils.Param("content", content);
-                list1.add(apiidParam);
-                list1.add(apikeyParam);
-                list1.add(phoneParam);
-                list1.add(contentParam);
-
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        //post方式连接  url
-                        OkHttpUtils.post(Url, new OkHttpUtils.ResultCallback() {
-                            @Override
-                            public void onSuccess(Object response) {
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            //post方式连接  url
+                            OkHttpUtils.post(Url, new OkHttpUtils.ResultCallback() {
+                                @Override
+                                public void onSuccess(Object response) {
 //                                Message message = new Message();
 //                                message.what = 0;
 //                                message.obj = response;
 //                                handler.sendMessage(message);
-                                Toast.makeText(RegisterActivity.this, "短信提交成功", Toast.LENGTH_SHORT).show();
-                            }
-                            @Override
-                            public void onFailure(Exception e) {
-                                Log.d("testRun", "请求失败loginActivity----new Thread(new Runnable() {------");
-                                Toast.makeText(RegisterActivity.this, "服务器连接失败，请重试！", Toast.LENGTH_SHORT).show();
-                            }
-                        },list1);
-                    }
+                                    Toast.makeText(RegisterActivity.this, "请求发送成功，请等待", Toast.LENGTH_SHORT).show();
+                                }
+                                @Override
+                                public void onFailure(Exception e) {
+                                    Log.d("testRun", "请求失败loginActivity----new Thread(new Runnable() {------");
+                                    Toast.makeText(RegisterActivity.this, "请求发送失败，请重试！", Toast.LENGTH_SHORT).show();
+                                }
+                            },list1);
+                        }
 
-                }).start();
+                    }).start();
+                }
+
             }
         });
 
@@ -136,7 +141,7 @@ public class RegisterActivity extends Activity{
                         OkHttpUtils.Param psdParam = new OkHttpUtils.Param("password",psd);
                         list.add(phoneParam);
                         list.add(psdParam);
-
+                        CustomWaitDialog.show(RegisterActivity.this,"注册中。。。");
                         new Thread(new Runnable() {
                             @Override
                             public void run() {
@@ -152,6 +157,7 @@ public class RegisterActivity extends Activity{
                                     @Override
                                     public void onFailure(Exception e) {
                                         Log.d("testRun", "请求失败loginActivity----new Thread(new Runnable() {------");
+                                        CustomWaitDialog.miss();
                                         Toast.makeText(RegisterActivity.this, "服务器连接失败，请重试！", Toast.LENGTH_SHORT).show();
                                     }
                                 },list);
@@ -235,6 +241,7 @@ public class RegisterActivity extends Activity{
     private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
+            CustomWaitDialog.miss();
             switch (msg.what){
                 case 0:
                     String result = (String)msg.obj;

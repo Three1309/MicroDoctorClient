@@ -111,12 +111,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
                         String userData= response.toString();
                         //将userData的json串直接缓存到本地
                         SharedPrefsUtil.putValue(MainActivity.this,APPConfig.USERDATA, userData);
-                        Gson gson = new Gson();
-                        UserInfo userInfo = new UserInfo();
-                        userInfo=gson.fromJson(userData,UserInfo.class);
-                        SharedPrefsUtil.putValue(MainActivity.this, APPConfig.ACCOUNT, userInfo.getPhone());
-                        Log.d("testRun","MenuActivity user信息缓存成功 "+response.toString());
-
+                        Log.d("testRun","MainActivity user信息缓存成功 "+userData);
                     }
 
                     @Override
@@ -128,6 +123,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
             }
         }).start();
     }
+
     /**
      * 初始化所有事件
      */

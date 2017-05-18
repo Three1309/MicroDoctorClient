@@ -16,6 +16,7 @@ import com.zhuolang.fu.microdoctorclient.R;
 import com.zhuolang.fu.microdoctorclient.common.APPConfig;
 import com.zhuolang.fu.microdoctorclient.utils.OkHttpUtils;
 import com.zhuolang.fu.microdoctorclient.utils.SharedPrefsUtil;
+import com.zhuolang.fu.microdoctorclient.view.CustomWaitDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,15 +81,16 @@ public class LoginActivity extends Activity {
                     @Override
                     public void onSuccess(Object response) {
                         String userData= response.toString();
+                        Log.d("testRun","LoginActivity user信息缓存成功 "+userData);
                         //将userData的json串直接缓存到本地
                         SharedPrefsUtil.putValue(LoginActivity.this,APPConfig.USERDATA, userData);
-                        Log.d("testRun","LoginActivity user信息缓存成功 "+response.toString());
 
                     }
 
                     @Override
                     public void onFailure(Exception e) {
                         Log.d("testRun", "网络请求失败------");
+                        CustomWaitDialog.miss();
                         Toast.makeText(LoginActivity.this, "服务器连接失败，请重试！", Toast.LENGTH_SHORT).show();
                     }
                 }, list);
@@ -110,6 +112,7 @@ public class LoginActivity extends Activity {
                 } else {
                     Log.d("testRun", " 登陆  loginActivity  ---  account:" + account + " psd:" + psd);
                     //运用okhttp框架 子线程获取后台数据
+                    CustomWaitDialog.show(LoginActivity.this,"登录中。。。");
                     final List<OkHttpUtils.Param> list = new ArrayList<OkHttpUtils.Param>();
                     OkHttpUtils.Param accountParam = new OkHttpUtils.Param("phone", account);
                     OkHttpUtils.Param psdParam = new OkHttpUtils.Param("password", psd);
@@ -125,12 +128,15 @@ public class LoginActivity extends Activity {
                                     Message message = new Message();
                                     message.what = 0;
                                     message.obj = response;
-                                    if (response.toString().equals("login_success0")) {
+                                    String result = response.toString();
+                                    if (result.equals("login_success0")) {
                                         SharedPrefsUtil.putValue(LoginActivity.this, APPConfig.TYPE, "0");
-                                    } else if (response.toString().equals("login_success1")) {
+                                    } else if (result.equals("login_success1")) {
                                         SharedPrefsUtil.putValue(LoginActivity.this, APPConfig.TYPE, "1");
-                                    } else if (response.toString().equals("login_success2")) {
+                                    } else if (result.equals("login_success2")) {
                                         SharedPrefsUtil.putValue(LoginActivity.this, APPConfig.TYPE, "2");
+                                    }else {
+                                        SharedPrefsUtil.putValue(LoginActivity.this, APPConfig.TYPE, "0");
                                     }
                                     handler.sendMessage(message);
                                 }
@@ -138,6 +144,7 @@ public class LoginActivity extends Activity {
                                 @Override
                                 public void onFailure(Exception e) {
                                     Log.d("testRun", "请求失败loginActivity----new Thread(new Runnable() {------");
+                                    CustomWaitDialog.miss();
                                     Toast.makeText(LoginActivity.this, "服务器连接失败，请重试！", Toast.LENGTH_SHORT).show();
 
                                 }
@@ -183,6 +190,7 @@ public class LoginActivity extends Activity {
                         SharedPrefsUtil.putValue(LoginActivity.this, APPConfig.ACCOUNT, account);
                         saveUserInfo(account);
                         //登录成功
+                        CustomWaitDialog.miss();
                         Toast.makeText(LoginActivity.this,"登陆成功！", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent();
                         intent.setClass(LoginActivity.this, MainActivity.class);
@@ -191,6 +199,7 @@ public class LoginActivity extends Activity {
                         finish();
                     }
                     else{
+                        CustomWaitDialog.miss();
                         Toast.makeText(LoginActivity.this,"账号或密码错误，登陆失败！",Toast.LENGTH_SHORT).show();
                     }
                     break;

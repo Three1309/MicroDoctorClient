@@ -52,6 +52,7 @@ public class PatientAppointmentDoctorDetailActivity extends Activity {
     private Button bt_see;
 
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,9 +114,9 @@ public class PatientAppointmentDoctorDetailActivity extends Activity {
     }
     public void updateDoctorsay() {
         final List<OkHttpUtils.Param> list = new ArrayList<OkHttpUtils.Param>();
-        String doctorsay = et_info.getText().toString().trim();
+        String doctorSayStr = et_info.getText().toString().trim();
         OkHttpUtils.Param idParam = new OkHttpUtils.Param("id", appointmentDto.getId() + "");
-        OkHttpUtils.Param doctorsayParam = new OkHttpUtils.Param("doctorSay", doctorsay);
+        OkHttpUtils.Param doctorsayParam = new OkHttpUtils.Param("doctorSay", doctorSayStr);
         list.add(idParam);
         list.add(doctorsayParam);
         new Thread(new Runnable() {
@@ -142,9 +143,10 @@ public class PatientAppointmentDoctorDetailActivity extends Activity {
 
     public void updateDiagnose() {
         final List<OkHttpUtils.Param> list = new ArrayList<OkHttpUtils.Param>();
+        String diagnoseStr = et_info.getText().toString().trim();
         OkHttpUtils.Param idParam = new OkHttpUtils.Param("id", appointmentDto.getId() + "");
         OkHttpUtils.Param doctorIdParam = new OkHttpUtils.Param("doctorId", appointmentDto.getDoctorId()+"");
-        OkHttpUtils.Param diagnoseParam = new OkHttpUtils.Param("diagnose", et_info.getText().toString().trim());
+        OkHttpUtils.Param diagnoseParam = new OkHttpUtils.Param("diagnose",diagnoseStr);
         list.add(idParam);
         list.add(doctorIdParam);
         list.add(diagnoseParam);
@@ -192,7 +194,8 @@ public class PatientAppointmentDoctorDetailActivity extends Activity {
                 case 0:
                     if (result.equals("updateDoctorSay_success")){
                         Toast.makeText(PatientAppointmentDoctorDetailActivity.this, "留言成功", Toast.LENGTH_SHORT).show();
-                        tv_doctorsays.setText(et_info.getText().toString().trim());
+                        String doctorSayStr = et_info.getText().toString().trim();
+                        tv_doctorsays.setText(doctorSayStr);
                     }else
                         Toast.makeText(PatientAppointmentDoctorDetailActivity.this, "留言失败", Toast.LENGTH_SHORT).show();
                     break;

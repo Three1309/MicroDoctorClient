@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp">
+
+        <ImageView
+            android:id="@+id/img_item_sharehouse_myhead"
+            android:layout_marginLeft="5dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/user_icon"
+            android:text="预约医师："/>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="1dp"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp">
+                <TextView
+                    android:id="@+id/tv_item_sharehouse_name"
+                    android:layout_marginLeft="2dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="#5f98ed"
+                    android:textSize="16sp"
+                    android:text="刘医生"/>
+
+                <TextView
+                    android:id="@+id/tv_item_sharehouse_type"
+                    android:layout_marginLeft="7dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:background="@drawable/single_unselect_green"
+                    android:padding="2dp"
+                    android:textColor="#edecec"
+                    android:textSize="13sp"
+                    android:text=" 医师 "/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp" >
+                <TextView
+                    android:layout_weight="1"
+                    android:id="@+id/tv_item_sharehouse_sendtime"
+                    android:layout_marginLeft="2dp"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:text="2017-01-01 10:10:10"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:layout_marginLeft="1dp"
+                    android:id="@+id/tv_item_sharehouse_delete"
+                    android:gravity="center"
+                    android:text="删除"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="40dp"
+                    android:textSize="13sp"
+                    android:padding="2dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tv_item_sharehouse_collect"
+                android:text="  + 收藏  "
+                android:textSize="13sp"
+                android:gravity="right"
+                android:padding="6dp"
+                android:textColor="#5f98ed"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/textview_back1"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="22dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp">
+
+        <TextView
+            android:id="@+id/tv_item_sharehouse_title"
+            android:text="标题"
+            android:textSize="16sp"
+            android:maxLength="21"
+            android:padding="2dp"
+            android:textColor="#333232"
+            android:layout_marginRight="3dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp">
+
+        <TextView
+            android:id="@+id/tv_item_sharehouse_content"
+            android:text="内容"
+            android:textSize="15sp"
+            android:textColor="#767474"
+            android:padding="2dp"
+            android:maxLines="3"
+            android:minLines="3"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="10dp">
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:id="@+id/tv_item_sharehouse_discussamount"
+                android:text="评论0"
+                android:textSize="12sp"
+                android:textColor="#9c9b9b"
+                android:padding="2dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginLeft="2dp"
+                android:id="@+id/tv_item_sharehouse_likesamount"
+                android:text="赞0"
+                android:textSize="12sp"
+                android:textColor="#9c9b9b"
+                android:padding="2dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginLeft="2dp"
+                android:id="@+id/tv_item_sharehouse_collectamount"
+                android:text="收藏0"
+                android:textSize="12sp"
+                android:textColor="#9c9b9b"
+                android:padding="2dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginRight="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp">
+            <ImageView
+                android:id="@+id/img_item_sharehouse_like"
+                android:layout_weight="1"
+                android:src="@mipmap/like01"
+                android:layout_width="40dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

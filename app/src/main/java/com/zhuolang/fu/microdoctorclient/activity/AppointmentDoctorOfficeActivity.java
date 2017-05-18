@@ -102,7 +102,7 @@ public class AppointmentDoctorOfficeActivity extends Activity implements Adapter
         intent.putExtra("office", doctorList.get(position).getOffice());
 //        intent.putExtra("flag", "false");
         startActivity(intent);
-        finish();
+//        finish();
     }
 
     private Handler handler = new Handler() {

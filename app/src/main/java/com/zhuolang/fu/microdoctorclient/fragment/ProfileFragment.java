@@ -146,8 +146,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         SharedPrefsUtil.putValue(getActivity(), APPConfig.IS_LOGIN, false);
-                        SharedPrefsUtil.putValue(getActivity(), APPConfig.ACCOUNT, "");
-                        SharedPrefsUtil.putValue(getActivity(), APPConfig.USERDATA, gson.toJson(new UserInfo()));
+//                        SharedPrefsUtil.putValue(getActivity(), APPConfig.ACCOUNT, "");
+//                        SharedPrefsUtil.putValue(getActivity(), APPConfig.USERDATA, gson.toJson(new UserInfo()));
                         Intent intent2 = new Intent();
                         intent2.setClass(getActivity(), LoginActivity.class);
                         startActivity(intent2);

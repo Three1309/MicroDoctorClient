@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.READ_SMS"></uses-permission>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"></uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@drawable/app_name"
@@ -49,6 +50,13 @@
         <activity android:name=".activity.DoctorAppointmentHistoryListActivity"></activity>
         <activity android:name=".activity.PatientAppointmentDoctorDetailActivity"></activity>
         <activity android:name=".activity.AppointmentMeHistoryListActivity"></activity>
+        <activity android:name=".activity.ShareHouseActivity"></activity>
+        <activity android:name=".activity.ShareInfoActivity"></activity>
+        <activity android:name=".activity.SendShareInfoActivity"></activity>
+        <activity android:name=".activity.UserShareHouseInfoActivity"></activity>
+        <activity android:name=".activity.MySharesHistoryActivity"></activity>
+        <activity android:name=".activity.MySharesCollectActivity"></activity>
+        <activity android:name=".activity.MySharesDiscussActivity"></activity>
 
 
     </application>

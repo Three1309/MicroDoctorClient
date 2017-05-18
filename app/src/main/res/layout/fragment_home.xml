@@ -50,11 +50,13 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent" />
                     <ImageView
+                        android:id="@+id/image_fhome_"
                         android:src="@drawable/a3"
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="match_parent" />
                     <ImageView
+                        android:id="@+id/image_fhome_showdoctor"
                         android:src="@drawable/a4"
                         android:layout_weight="1"
                         android:layout_width="0dp"
@@ -78,7 +80,7 @@
                     <TextView
                         android:textSize="11sp"
                         android:gravity="center"
-                        android:text="精准预约"
+                        android:text="在线问诊"
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="match_parent" />
@@ -92,14 +94,14 @@
                     <TextView
                         android:textSize="11sp"
                         android:gravity="center"
-                        android:text="咨询大厅"
+                        android:text="医师展示"
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="match_parent" />
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="3dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="120dp">
@@ -114,15 +116,16 @@
                     android:layout_width="1dp"
                     android:layout_height="match_parent" />
                 <ImageView
+                    android:id="@+id/image_fhome_sharehouse"
                     android:background="@color/white"
-                    android:src="@drawable/a6"
+                    android:src="@drawable/aa6"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" />
             </LinearLayout>
             <LinearLayout
                 android:layout_marginTop="3dp"
-                android:layout_marginBottom="3dp"
+                android:layout_marginBottom="5dp"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -148,13 +151,13 @@
                         android:layout_height="wrap_content" />
                     <ImageView
                         android:background="@color/white"
-                        android:id="@+id/image_fhome_showdoctor"
+                        android:id="@+id/image_fhome_myask"
                         android:layout_weight="1"
                         android:src="@drawable/a9"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content" />
                     <ImageView
-                        android:id="@+id/image_fhome_myask"
+                        android:id="@+id/image_fhome_mydongtai"
                         android:background="@color/white"
                         android:src="@drawable/a10"
                         android:layout_weight="1"
@@ -167,28 +170,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
-                        android:textSize="10sp"
+                        android:textSize="11sp"
                         android:gravity="center"
                         android:text="就诊历史"
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="match_parent" />
                     <TextView
-                        android:textSize="10sp"
+                        android:textSize="11sp"
                         android:gravity="center"
                         android:text="我的预约"
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="match_parent" />
                     <TextView
-                        android:textSize="10sp"
+                        android:textSize="11sp"
                         android:gravity="center"
-                        android:text="医师展示"
+                        android:text="我的问诊"
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="match_parent" />
                     <TextView
-                        android:textSize="10sp"
+                        android:textSize="11sp"
                         android:gravity="center"
                         android:text="我的咨询"
                         android:layout_weight="1"

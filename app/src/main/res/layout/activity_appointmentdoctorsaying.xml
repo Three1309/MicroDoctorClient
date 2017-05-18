@@ -142,6 +142,7 @@
                 style="@style/usertext"
                 android:background="@drawable/edittext_back"
                 android:gravity="center"
+                android:maxLines="4"
                 android:id="@+id/et_appointment_doctorsaying_info"
                 android:hint="请输入信息（预约留言或就诊信息），填写完毕点击按钮即可留言给预约病人或完成病人就诊。" />
         </LinearLayout>

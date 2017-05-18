@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+
+        <LinearLayout
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:id="@+id/ll_alldoctorlist_top"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:background="@color/steelblue"
+            android:layout_height="40dp">
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_height="23dp"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/img_usersharehouse_back"
+                android:src="@drawable/back01"/>
+            <TextView
+                android:id="@+id/tv_usersharehouse_top"
+                android:text="我的医言堂社区"
+                android:textSize="20sp"
+                android:textColor="#ffffff"
+                android:layout_gravity="center_vertical"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:padding="4dp"
+                android:layout_width="55dp"
+                android:layout_height="40dp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    style="@style/wrap_layout" >
+                    <!-- 上圆角-->
+                    <LinearLayout
+                        android:id="@+id/ll_usersharehouse_myinfo"
+                        android:layout_height="76dp"
+                        style="@style/top_layout">
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@mipmap/user_icon"/>
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="2dp"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:id="@+id/tv_usersharehouse_name"
+                                    android:layout_marginLeft="2dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:textColor="#464646"
+                                    android:textSize="16sp"
+                                    android:text=""/>
+
+                                <TextView
+                                    android:id="@+id/tv_usersharehouse_type"
+                                    android:layout_marginLeft="7dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="center"
+                                    android:background="@drawable/single_unselect_green"
+                                    android:padding="2dp"
+                                    android:textColor="#edecec"
+                                    android:textSize="13sp"
+                                    android:text=" 医师 "/>
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_weight="1"
+                                android:id="@+id/tv_usersharehouse_jianjie"
+                                android:layout_marginLeft="2dp"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center_vertical"
+                                android:singleLine="true"
+                                android:text="个人简介:"
+                                android:textSize="12sp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+
+                        </LinearLayout>
+                        <ImageView style="@style/img_arrow"/>
+                    </LinearLayout>
+
+                    <!-- 分割线 -->
+                    <View style="@style/bg_line"/>
+
+                    <!-- 下圆角-->
+                    <LinearLayout
+                        android:layout_height="76dp"
+                        android:layout_width="match_parent"
+                        style="@style/bottom_layout">
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:id="@+id/tv_usersharehouse_collectamount"
+                                android:text="0"
+                                android:gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:text="被收藏"
+                                android:gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:id="@+id/tv_usersharehouse_likesamount"
+                                android:text="0"
+                                android:gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:text="被点赞"
+                                android:gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:id="@+id/tv_usersharehouse_discussamount"
+                                android:text="0"
+                                android:gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:text="被评论"
+                                android:gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/wrap_layout" >
+                    <!-- 上圆角-->
+                    <LinearLayout
+                        android:id="@+id/ll_usersharehouse_myshares"
+                        style="@style/top_layout">
+                        <TextView style="@style/usertext"
+                            android:id="@+id/tv_usersharehouse_myshares"
+                            android:text="我的帖子" />
+                        <ImageView style="@style/img_arrow"/>
+                    </LinearLayout>
+
+                    <!-- 分割线 -->
+                    <View style="@style/bg_line"/>
+                    <!-- 无圆角-->
+                    <LinearLayout
+                        android:id="@+id/ll_usersharehouse_mycollects"
+                        style="@style/mid_layout">
+                        <TextView
+                            style="@style/usertext"
+                            android:id="@+id/tv_usersharehouse_mycollects"
+                            android:text="我的收藏" />
+                        <ImageView style="@style/img_arrow"/>
+                    </LinearLayout>
+                    <View style="@style/bg_line"/>
+                    <!-- 无圆角-->
+                    <LinearLayout
+                        android:id="@+id/ll_usersharehouse_myguanzus"
+                        style="@style/mid_layout">
+                        <TextView
+                            style="@style/usertext"
+                            android:id="@+id/tv_usersharehouse_myguanzus"
+                            android:text="我的关注" />
+                        <ImageView style="@style/img_arrow"/>
+                    </LinearLayout>
+                    <View style="@style/bg_line"/>
+                    <!-- 下圆角-->
+                    <LinearLayout
+                        android:id="@+id/ll_usersharehouse_mydiscusses"
+                        style="@style/bottom_layout">
+                        <TextView
+                            style="@style/usertext"
+                            android:id="@+id/tv_usersharehouse_mydiscusses"
+                            android:text="我的评论" />
+                        <ImageView style="@style/img_arrow"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+
+</LinearLayout>

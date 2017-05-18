@@ -175,12 +175,12 @@ public class MyAppointmentHistoryDetailActivity extends Activity {
                         Toast.makeText(MyAppointmentHistoryDetailActivity.this, "已取消赞", Toast.LENGTH_SHORT).show();
                         appointmentDto.setdLikenum(appointmentDto.getdLikenum() - 1);
                         tv_appoint_likenumber.setText(appointmentDto.getdLikenum() + "");
-                        imageViewLike.setImageResource(R.mipmap.like02);
+                        imageViewLike.setImageResource(R.mipmap.like01);
                     }
                     break;
                 case 1:
                     if (result.equals("dislikes")) {
-                        imageViewLike.setImageResource(R.mipmap.like02);
+                        imageViewLike.setImageResource(R.mipmap.like01);
                     }else {
                         imageViewLike.setImageResource(R.mipmap.islike01);
                     }

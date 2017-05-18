@@ -105,7 +105,7 @@ public class AppointmentDoctorHospitalActivity extends Activity implements Adapt
         intent.putExtra("office", office);
         intent.putExtra("hospital", doctorList.get(position).getHospital());
         startActivity(intent);
-        finish();
+//        finish();
     }
 
     private Handler handler = new Handler() {

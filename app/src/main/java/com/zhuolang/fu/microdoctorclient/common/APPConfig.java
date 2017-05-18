@@ -34,6 +34,20 @@ public class APPConfig {
     public static String updateDiagnose = base_url + "update_apptmdiagnose";
     public static String findDoctSeeHistory = base_url + "find_doctseehistory";
 
+    public static String findAllShare = base_url + "findAllShare";
+    public static String findAllShareDiscuss = base_url + "findAllShareDiscuss";
+    public static String addShareSend = base_url + "addShareSend";
+    public static String deleteShareSendBySendId = base_url + "deleteShareSendBySendId";
+    public static String addShareDiscuss = base_url + "addShareDiscuss";
+    public static String deleteShareDiscuss = base_url + "deleteShareDiscuss";
+    public static String updateShareCollect = base_url + "updateShareCollect";
+    public static String updateShareLikes = base_url + "updateShareLikes";
+    public static String findUserShareInfo = base_url + "findUserShareInfo";
+    public static String findMyShareInfoHistory = base_url + "findMyShareInfoHistory";
+    public static String findMyCollectShareInfo = base_url + "findMyCollectShareInfo";
+    public static String findMyDiscussShareInfo = base_url + "findMyDiscussShareInfo";
+
+
     public static String IS_LOGIN = "is_login";
     public static String ACCOUNT = "account";
     public static String USERDATA = "userData";//获取当前用户的key
