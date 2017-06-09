@@ -164,7 +164,7 @@ public class ShareInfoDiscussAdapter extends BaseAdapter {
                                     list.remove(position);
                                     notifyDataSetChanged();
                                 }else{
-
+                                    Toast.makeText(context, "请求失败", Toast.LENGTH_SHORT).show();
                                 }
                             }
 

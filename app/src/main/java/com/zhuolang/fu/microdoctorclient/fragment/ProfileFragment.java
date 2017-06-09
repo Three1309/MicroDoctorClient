@@ -1,6 +1,7 @@
 package com.zhuolang.fu.microdoctorclient.fragment;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.hyphenate.EMCallBack;
+import com.zhuolang.fu.microdoctorclient.DemoApplication;
 import com.zhuolang.fu.microdoctorclient.R;
 import com.zhuolang.fu.microdoctorclient.activity.AgreeRegisterDoctotActivity;
 import com.zhuolang.fu.microdoctorclient.activity.LoginActivity;
@@ -126,6 +129,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        logout();
                         getActivity().finish();
                     }
                 });
@@ -148,6 +152,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                         SharedPrefsUtil.putValue(getActivity(), APPConfig.IS_LOGIN, false);
 //                        SharedPrefsUtil.putValue(getActivity(), APPConfig.ACCOUNT, "");
 //                        SharedPrefsUtil.putValue(getActivity(), APPConfig.USERDATA, gson.toJson(new UserInfo()));
+
+                        logout();
                         Intent intent2 = new Intent();
                         intent2.setClass(getActivity(), LoginActivity.class);
                         startActivity(intent2);
@@ -184,5 +190,48 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 }
                 break;
         }
+    }
+
+    private void logout() {
+        final ProgressDialog pd = new ProgressDialog(getContext());
+        String st = getResources().getString(R.string.Are_logged_out);
+        pd.setMessage(st);
+        pd.setCanceledOnTouchOutside(false);
+        pd.show();
+        DemoApplication.getInstance().logout(false,new EMCallBack() {
+
+            @Override
+            public void onSuccess() {
+                getActivity().runOnUiThread(new Runnable() {
+                    public void run() {
+                        pd.dismiss();
+                        // 重新显示登陆页面
+//                        finish();
+//                        startActivity(new Intent(MainActivity.this, LoginActivity.class));
+
+                    }
+                });
+            }
+
+            @Override
+            public void onProgress(int progress, String status) {
+
+            }
+
+            @Override
+            public void onError(int code, String message) {
+                getActivity().runOnUiThread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        // TODO Auto-generated method stub
+                        pd.dismiss();
+                        Toast.makeText(getContext(), "unbind devicetokens failed", Toast.LENGTH_SHORT).show();
+
+
+                    }
+                });
+            }
+        });
     }
 }

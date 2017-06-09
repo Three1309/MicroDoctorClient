@@ -5,41 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <FrameLayout
-        android:background="#bd2ea3fe"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:id="@+id/title_bar_left_menu"
-            android:layout_gravity="left|center_vertical"
-            android:layout_marginLeft="10dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="3dp"
-            android:text="@string/app_name"
-            android:textSize="22sp"
-            android:textColor="#fdfdfd"
-            android:layout_gravity="center"/>
-        <TextView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginRight="10dp"
-            android:layout_gravity="right|center_vertical"/>
-        <!--
-                    <Button
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:background="@drawable/titlebar_menu_selector"
-                        android:id="@+id/title_bar_right_menu"
-                        android:layout_gravity="right|center_vertical"
-                        android:layout_marginRight="10dp"/>
-                        -->
-    </FrameLayout>
     <com.zhuolang.fu.microdoctorclient.view.CustomViewPager
         android:id="@+id/id_viewpager"
         android:layout_width="match_parent"
@@ -64,17 +30,6 @@
             hyman:text="@string/tab_homepage"
             hyman:text_size="13sp"
             android:layout_weight="1"/>
-
-        <com.zhuolang.fu.microdoctorclient.view.ChangeColorIconWithText
-            android:id="@+id/id_indicator_two"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:padding="3dp"
-            hyman:icon="@drawable/ic_menu_start_conversation"
-            hyman:color="#FF3098EF"
-            hyman:text="发现"
-            hyman:text_size="13sp"
-            android:layout_weight="1"/>
         <com.zhuolang.fu.microdoctorclient.view.ChangeColorIconWithText
             android:id="@+id/id_indicator_four"
             android:layout_width="0dp"
@@ -82,9 +37,20 @@
             android:padding="3dp"
             hyman:icon="@drawable/ic_menu_friendslist"
             hyman:color="#FF3098EF"
-            hyman:text="消息"
+            hyman:text="通讯录"
             hyman:text_size="13sp"
             android:layout_weight="1"/>
+        <com.zhuolang.fu.microdoctorclient.view.ChangeColorIconWithText
+            android:id="@+id/id_indicator_two"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:padding="3dp"
+            hyman:icon="@drawable/ic_menu_start_conversation"
+            hyman:color="#FF3098EF"
+            hyman:text="聊天"
+            hyman:text_size="13sp"
+            android:layout_weight="1"/>
+
 
         <com.zhuolang.fu.microdoctorclient.view.ChangeColorIconWithText
             android:id="@+id/id_indicator_three"

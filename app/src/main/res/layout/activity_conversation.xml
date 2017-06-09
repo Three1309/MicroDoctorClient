@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!--<LinearLayout-->
+        <!--android:orientation="horizontal"-->
+        <!--android:background="@color/steelblue"-->
+        <!--android:id="@+id/title"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/height_top_bar"-->
+        <!--android:gravity="center_vertical" >-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/conversationactivity_img_back"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:src="@drawable/back01"-->
+            <!--android:layout_width="60dp"-->
+            <!--android:layout_height="25dp" />-->
+        <!--<TextView-->
+            <!--android:id="@+id/tv_toUsername"-->
+            <!--android:text="会话列表"-->
+            <!--android:textSize="20dp"-->
+            <!--android:textColor="#fffff1"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:layout_height="wrap_content" />-->
+
+        <!--<TextView-->
+            <!--android:text=""-->
+            <!--android:gravity="center"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:layout_marginRight="5dp"-->
+            <!--android:textColor="#fffff1"-->
+            <!--android:layout_width="60dp"-->
+            <!--android:layout_height="match_parent" />-->
+
+    <!--</LinearLayout>-->
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/title"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/height_top_bar"-->
+        <!--android:background="@color/top_bar_normal_bg"-->
+        <!--android:gravity="center_vertical" >-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:text="会话列表"-->
+            <!--android:textColor="#fff"-->
+            <!--android:textSize="18sp" />-->
+    <!--</RelativeLayout>-->
+    <LinearLayout
+        android:background="#bd2ea3fe"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="@string/app_name"
+            android:textSize="22sp"
+            android:textColor="#fdfdfd"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F0F3F6"
+    android:background="@color/white"
     >
 
     <LinearLayout
@@ -19,7 +19,7 @@
             android:id="@+id/img_alldoctorlist_back"
             android:src="@drawable/back01"/>
         <TextView
-            android:text="医师展示"
+            android:text="医师列表"
             android:textSize="20sp"
             android:id="@+id/tv_alldoctorlist"
             android:textColor="#ffffff"
@@ -27,12 +27,75 @@
             android:layout_centerHorizontal="true"
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:gravity="center_horizontal"
             android:layout_height="wrap_content"/>
         <TextView
+            android:id="@+id/tv_doctorlist_refresh"
+            android:text="刷新"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
             android:layout_width="60dp"
             android:layout_height="match_parent" />
     </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_doctorlist_info"
+        android:hint="请输入信息"
+        android:maxLength="20"
+        android:textSize="17sp"
+        android:padding="4dp"
+        android:background="@drawable/edittext_back"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+    <TextView
+        android:background="@color/gray"
+        android:layout_width="match_parent"
+        android:layout_height="3dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="#ddd"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+        <TextView
+            android:id="@+id/tv_doctorlist_name"
+            android:textSize="15sp"
+            android:text="  按姓名查找  "
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="30dp" />
+        <TextView
+            android:background="@color/gray"
+            android:layout_width="1dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/tv_doctorlist_phone"
+            android:textSize="15sp"
+            android:text="  按手机号查找  "
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="30dp" />
+        <TextView
+            android:background="@color/gray"
+            android:layout_width="1dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/tv_doctorlist_office"
+            android:textSize="15sp"
+            android:text="  按科室查找  "
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="30dp" />
+    </LinearLayout>
+    <TextView
+        android:background="@color/gray"
+        android:layout_width="match_parent"
+        android:layout_height="3dp" />
 
     <ListView
         android:dividerHeight="3dp"

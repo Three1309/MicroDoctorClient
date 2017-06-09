@@ -214,17 +214,17 @@
                             android:text="我的收藏" />
                         <ImageView style="@style/img_arrow"/>
                     </LinearLayout>
-                    <View style="@style/bg_line"/>
-                    <!-- 无圆角-->
-                    <LinearLayout
-                        android:id="@+id/ll_usersharehouse_myguanzus"
-                        style="@style/mid_layout">
-                        <TextView
-                            style="@style/usertext"
-                            android:id="@+id/tv_usersharehouse_myguanzus"
-                            android:text="我的关注" />
-                        <ImageView style="@style/img_arrow"/>
-                    </LinearLayout>
+                    <!--<View style="@style/bg_line"/>-->
+                    <!--&lt;!&ndash; 无圆角&ndash;&gt;-->
+                    <!--<LinearLayout-->
+                        <!--android:id="@+id/ll_usersharehouse_myguanzus"-->
+                        <!--style="@style/mid_layout">-->
+                        <!--<TextView-->
+                            <!--style="@style/usertext"-->
+                            <!--android:id="@+id/tv_usersharehouse_myguanzus"-->
+                            <!--android:text="我的关注" />-->
+                        <!--<ImageView style="@style/img_arrow"/>-->
+                    <!--</LinearLayout>-->
                     <View style="@style/bg_line"/>
                     <!-- 下圆角-->
                     <LinearLayout

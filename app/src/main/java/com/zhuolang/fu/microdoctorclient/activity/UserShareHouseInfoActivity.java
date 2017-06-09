@@ -92,7 +92,7 @@ public class UserShareHouseInfoActivity extends Activity implements View.OnClick
         tv_myjianjie = (TextView) findViewById(R.id.tv_usersharehouse_jianjie);
         tv_myshares = (TextView) findViewById(R.id.tv_usersharehouse_myshares);
         tv_mycollects = (TextView) findViewById(R.id.tv_usersharehouse_mycollects);
-        tv_myguanzus = (TextView) findViewById(R.id.tv_usersharehouse_myguanzus);
+//        tv_myguanzus = (TextView) findViewById(R.id.tv_usersharehouse_myguanzus);
         tv_mydiscusses = (TextView) findViewById(R.id.tv_usersharehouse_mydiscusses);
         tv_likesAmount = (TextView) findViewById(R.id.tv_usersharehouse_likesamount);
         tv_collectAmount = (TextView) findViewById(R.id.tv_usersharehouse_collectamount);
@@ -106,7 +106,7 @@ public class UserShareHouseInfoActivity extends Activity implements View.OnClick
             tv_top.setText("TA的医言堂社区");
             tv_myshares.setText("TA的帖子");
             tv_mycollects.setText("TA的收藏");
-            tv_myguanzus.setText("TA的关注");
+//            tv_myguanzus.setText("TA的关注");
             tv_mydiscusses.setText("TA的评论");
         }
 
@@ -164,15 +164,18 @@ public class UserShareHouseInfoActivity extends Activity implements View.OnClick
                 break;
             case R.id.ll_usersharehouse_myshares:
                 Intent intent = new Intent(UserShareHouseInfoActivity.this,MySharesHistoryActivity.class);
+                intent.putExtra("userId", getIntentUserId);
                 startActivity(intent);
                 break;
             case R.id.ll_usersharehouse_mydiscusses:
                 Intent intent1 = new Intent(UserShareHouseInfoActivity.this,MySharesDiscussActivity.class);
+                intent1.putExtra("userId", getIntentUserId);
                 startActivity(intent1);
 
                 break;
             case R.id.ll_usersharehouse_mycollects:
                 Intent intent2 = new Intent(UserShareHouseInfoActivity.this,MySharesCollectActivity.class);
+                intent2.putExtra("userId", getIntentUserId);
                 startActivity(intent2);
 
                 break;

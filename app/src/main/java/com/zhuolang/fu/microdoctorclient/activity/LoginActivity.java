@@ -1,10 +1,13 @@
 package com.zhuolang.fu.microdoctorclient.activity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -12,14 +15,23 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hyphenate.EMCallBack;
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.exceptions.HyphenateException;
+import com.zhuolang.fu.microdoctorclient.DemoApplication;
 import com.zhuolang.fu.microdoctorclient.R;
 import com.zhuolang.fu.microdoctorclient.common.APPConfig;
+import com.zhuolang.fu.microdoctorclient.db.DemoDBManager;
+import com.zhuolang.fu.microdoctorclient.db.EaseUser;
+import com.zhuolang.fu.microdoctorclient.utils.EaseCommonUtils;
 import com.zhuolang.fu.microdoctorclient.utils.OkHttpUtils;
 import com.zhuolang.fu.microdoctorclient.utils.SharedPrefsUtil;
 import com.zhuolang.fu.microdoctorclient.view.CustomWaitDialog;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by wunaifu on 2017/4/28.
@@ -188,6 +200,7 @@ public class LoginActivity extends Activity {
                         //保存登录状态和当前用户信息
                         SharedPrefsUtil.putValue(LoginActivity.this, APPConfig.IS_LOGIN,true);
                         SharedPrefsUtil.putValue(LoginActivity.this, APPConfig.ACCOUNT, account);
+                        SharedPrefsUtil.putValue(LoginActivity.this, APPConfig.PSW, psd);
                         saveUserInfo(account);
                         //登录成功
                         CustomWaitDialog.miss();
@@ -207,5 +220,7 @@ public class LoginActivity extends Activity {
         }
 
     };
+
+
 }
 

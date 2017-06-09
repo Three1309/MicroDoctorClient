@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@color/steelblue"
+        android:layout_width="match_parent"
+        android:layout_height="35dp">
+
+        <ImageView
+            android:id="@+id/addbeizu_img_back"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/back01"
+            android:layout_width="60dp"
+            android:layout_height="25dp" />
+        <TextView
+            android:text="修改好友备注"
+            android:textSize="20dp"
+            android:textColor="#fffff1"
+            android:layout_gravity="center_vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text=""
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="5dp"
+            android:textColor="#fffff1"
+            android:layout_width="60dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/et_username"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_margin="20dp"
+        android:background="#fff"
+        android:hint="输入好友备注"
+        android:paddingLeft="10dp" />
+
+    <Button
+        android:id="@+id/btn_update"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_margin="20dp"
+        android:background="#2c77e9"
+        android:text="发出申请"
+        android:textColor="#fff"
+        android:textSize="16sp" />
+
+</LinearLayout>

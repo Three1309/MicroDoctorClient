@@ -9,9 +9,11 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -34,14 +36,32 @@ public class AllDoctorListActivity extends Activity implements AdapterView.OnIte
     private ListView listView;
     private DoctorListAdapter doctorListAdapter;
     private List<UserInfo> doctorList;
+    private List<UserInfo> doctorListFind;
     private ImageView img_back;
+
+    private EditText et_info;
+    private TextView tv_byname;
+    private TextView tv_byphone;
+    private TextView tv_bytype;
+    private TextView tv_refresh;
+    private boolean flag = true;
+    private String userDataStr;
     Gson gson = new Gson();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alldoctorlist);
+
+//        String wherestr=this.getIntent().getStringExtra("where");
+        et_info = (EditText) findViewById(R.id.et_doctorlist_info);
+        tv_byname = (TextView) findViewById(R.id.tv_doctorlist_name);
+        tv_byphone = (TextView) findViewById(R.id.tv_doctorlist_phone);
+        tv_bytype = (TextView) findViewById(R.id.tv_doctorlist_office);
+        tv_refresh = (TextView) findViewById(R.id.tv_doctorlist_refresh);
+
         listView = (ListView) findViewById(R.id.doctorlistview);
+
         initMotion();
         //设置listview的元素被选中时的事件处理监听器
         listView.setOnItemClickListener(this);
@@ -52,7 +72,128 @@ public class AllDoctorListActivity extends Activity implements AdapterView.OnIte
                 finish();
             }
         });
+        tv_refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (doctorList != null && doctorList.size() > 0) {
+                    doctorList.clear();
+                }
+                initMotion();
+            }
+        });
 
+        tv_byphone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String info = et_info.getText().toString().trim();
+                if (info.equals("")) {
+                    Toast.makeText(AllDoctorListActivity.this, "不能为空，请输入信息", Toast.LENGTH_SHORT).show();
+                }else {
+                    int findAmount = 0;
+//                    doctorListFind.clear();
+                    doctorListFind = gson.fromJson(userDataStr, new TypeToken<List<UserInfo>>() {}.getType());
+                    if (doctorListFind != null && doctorListFind.size() > 0) {
+                        for (int i = 0; i < doctorListFind.size(); i++) {
+                            if (doctorListFind.get(i).getPhone().equals(info)) {
+                                if (findAmount == 0) {
+                                    doctorList.clear();
+                                    flag=false;
+                                }
+                                findAmount = findAmount + 1;
+                                doctorList.add(doctorListFind.get(i));
+                                break;
+                            }
+
+                        }
+                        if (findAmount > 0 && doctorList != null && doctorList.size() > 0) {
+                            Toast.makeText(AllDoctorListActivity.this, "已找到该医师信息", Toast.LENGTH_SHORT).show();
+                            doctorListAdapter = new DoctorListAdapter(AllDoctorListActivity.this,doctorList );
+                            listView.setAdapter(doctorListAdapter);
+                        }else {
+                            Toast.makeText(AllDoctorListActivity.this, "没有找到该医师信息", Toast.LENGTH_SHORT).show();
+                        }
+                        doctorListFind.clear();
+                    }else {
+                        Toast.makeText(AllDoctorListActivity.this, "没有医师信息", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+            }
+        });
+        tv_byname.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String info = et_info.getText().toString().trim();
+                if (info.equals("")) {
+                    Toast.makeText(AllDoctorListActivity.this, "不能为空，请输入信息", Toast.LENGTH_SHORT).show();
+                }else {
+                    int findAmount = 0;
+
+                    doctorListFind = gson.fromJson(userDataStr, new TypeToken<List<UserInfo>>() {}.getType());
+                    if (doctorListFind != null && doctorListFind.size() > 0) {
+                        for (int i = 0; i < doctorListFind.size(); i++) {
+                            if (doctorListFind.get(i).getName().equals(info)) {
+                                if (findAmount == 0) {
+                                    doctorList.clear();
+                                    flag=false;
+                                }
+                                findAmount = findAmount + 1;
+                                doctorList.add(doctorListFind.get(i));
+                            }
+
+                        }
+                        if (findAmount > 0 && doctorList != null && doctorList.size() > 0) {
+                            Toast.makeText(AllDoctorListActivity.this, "已找到该医师信息", Toast.LENGTH_SHORT).show();
+                            doctorListAdapter = new DoctorListAdapter(AllDoctorListActivity.this,doctorList );
+                            listView.setAdapter(doctorListAdapter);
+                        }else {
+                            Toast.makeText(AllDoctorListActivity.this, "没有找到该医师信息", Toast.LENGTH_SHORT).show();
+                        }
+                        doctorListFind.clear();
+                    }else {
+                        Toast.makeText(AllDoctorListActivity.this, "没有医师信息", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+            }
+        });
+        tv_bytype.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String info = et_info.getText().toString().trim();
+                if (info.equals("")) {
+                    Toast.makeText(AllDoctorListActivity.this, "不能为空，请输入信息", Toast.LENGTH_SHORT).show();
+                }else {
+                    int findAmount = 0;
+//                    doctorListFind.clear();
+                    doctorListFind = gson.fromJson(userDataStr, new TypeToken<List<UserInfo>>() {}.getType());
+                    if (doctorListFind != null && doctorListFind.size() > 0) {
+                        for (int i = 0; i < doctorListFind.size(); i++) {
+                            if (doctorListFind.get(i).getOffice().equals(info)) {
+                                if (findAmount == 0) {
+                                    doctorList.clear();
+                                    flag=false;
+                                }
+                                findAmount = findAmount + 1;
+                                doctorList.add(doctorListFind.get(i));
+                            }
+
+                        }
+                        if (findAmount > 0 && doctorList != null && doctorList.size() > 0) {
+                            Toast.makeText(AllDoctorListActivity.this, "已找到该医师信息", Toast.LENGTH_SHORT).show();
+                            doctorListAdapter = new DoctorListAdapter(AllDoctorListActivity.this,doctorList );
+                            listView.setAdapter(doctorListAdapter);
+                        }else {
+                            Toast.makeText(AllDoctorListActivity.this, "没有找到该医师信息", Toast.LENGTH_SHORT).show();
+                        }
+                        doctorListFind.clear();
+                    }
+                    else {
+                        Toast.makeText(AllDoctorListActivity.this, "没有医师信息", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
     }
 
     public void initMotion() {
@@ -70,7 +211,7 @@ public class AllDoctorListActivity extends Activity implements AdapterView.OnIte
                         Message message = new Message();
                         message.what = 0;
                         message.obj = response;
-                        String userDataStr= response.toString();
+                        userDataStr= response.toString();
                         Log.d("testrun", "AllDoctorListActivity : "+userDataStr);
                         if (userDataStr.equals("nodata")) {
                             Toast.makeText(AllDoctorListActivity.this, "没有医师信息", Toast.LENGTH_SHORT).show();
@@ -78,6 +219,7 @@ public class AllDoctorListActivity extends Activity implements AdapterView.OnIte
                             //将userData的json串直接缓存到本地
 //                        doctorList= (List<UserInfo>) gson.fromJson(userDataStr,UserInfo.class);
                             doctorList = gson.fromJson(userDataStr, new TypeToken<List<UserInfo>>() {}.getType());
+
                             handler.sendMessage(message);
 
                         }

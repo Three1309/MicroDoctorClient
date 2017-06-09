@@ -29,11 +29,11 @@
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/doctordetail_tv_updateinfo"
-            android:text=""
+            android:id="@+id/doctordetail_tv_ask"
+            android:text="咨询"
             android:gravity="center"
             android:layout_gravity="center_vertical"
-            android:textSize="20dp"
+            android:textSize="18sp"
             android:layout_marginRight="5dp"
             android:textColor="#fffff1"
             android:layout_width="60dp"

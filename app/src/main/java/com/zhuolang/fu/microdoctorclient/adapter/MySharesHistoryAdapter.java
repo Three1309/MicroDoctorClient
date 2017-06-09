@@ -11,12 +11,15 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.zhuolang.fu.microdoctorclient.R;
+import com.zhuolang.fu.microdoctorclient.activity.ClickShareInfoActivity;
 import com.zhuolang.fu.microdoctorclient.activity.ShareHouseActivity;
+import com.zhuolang.fu.microdoctorclient.activity.ShareInfoActivity;
 import com.zhuolang.fu.microdoctorclient.activity.UserShareHouseInfoActivity;
 import com.zhuolang.fu.microdoctorclient.common.APPConfig;
 import com.zhuolang.fu.microdoctorclient.model.ShareDto;
@@ -104,18 +107,19 @@ public class MySharesHistoryAdapter extends BaseAdapter {
 //        if (convertView == null) {
             convertView = inflater.inflate(R.layout.item_myshareshistory, null);
             //第一次创建这个布局的话就寻找控件，记得是基于这个converView布局寻找
-            holder.name = (TextView) convertView.findViewById(R.id.tv_item_sharehouse_name);
-            holder.type = (TextView) convertView.findViewById(R.id.tv_item_sharehouse_type);
-            holder.sendTime = (TextView) convertView.findViewById(R.id.tv_item_sharehouse_sendtime);
-            holder.collect = (TextView) convertView.findViewById(R.id.tv_item_sharehouse_collect);
-            holder.title = (TextView) convertView.findViewById(R.id.tv_item_sharehouse_title);
-            holder.content = (TextView) convertView.findViewById(R.id.tv_item_sharehouse_content);
-            holder.discussAmount = (TextView) convertView.findViewById(R.id.tv_item_sharehouse_discussamount);
-            holder.likesAmount = (TextView) convertView.findViewById(R.id.tv_item_sharehouse_likesamount);
-            holder.collectAmount = (TextView) convertView.findViewById(R.id.tv_item_sharehouse_collectamount);
-            holder.delete = (TextView) convertView.findViewById(R.id.tv_item_sharehouse_delete);
-            holder.img_like = (ImageView) convertView.findViewById(R.id.img_item_sharehouse_like);
-            holder.img_myhead = (ImageView) convertView.findViewById(R.id.img_item_sharehouse_myhead);
+//            holder.name = (TextView) convertView.findViewById(R.id.tv_item_sharehouse_name);
+//            holder.type = (TextView) convertView.findViewById(R.id.tv_item_sharehouse_type);
+            holder.sendTime = (TextView) convertView.findViewById(R.id.tv_item_myshareshistory_time);
+            holder.sendTimes = (TextView) convertView.findViewById(R.id.tv_item_myshareshistory_times);
+//            holder.collect = (TextView) convertView.findViewById(R.id.tv_item_sharehouse_collect);
+            holder.title = (TextView) convertView.findViewById(R.id.tv_item_myshareshistory_title);
+            holder.content = (TextView) convertView.findViewById(R.id.tv_item_myshareshistory_content);
+//            holder.discussAmount = (TextView) convertView.findViewById(R.id.tv_item_sharehouse_discussamount);
+//            holder.likesAmount = (TextView) convertView.findViewById(R.id.tv_item_sharehouse_likesamount);
+//            holder.collectAmount = (TextView) convertView.findViewById(R.id.tv_item_sharehouse_collectamount);
+//            holder.delete = (TextView) convertView.findViewById(R.id.tv_item_sharehouse_delete);
+//            holder.img_like = (ImageView) convertView.findViewById(R.id.img_item_sharehouse_like);
+            holder.ll_content = (LinearLayout) convertView.findViewById(R.id.ll_myshareshistory_content);
 
             //第一次填充布局就缓存控件
 //            convertView.setTag(holder);
@@ -124,179 +128,19 @@ public class MySharesHistoryAdapter extends BaseAdapter {
 //        }
 
 //        collectAmount = list.get(position).getCollectAmount();
-        if (list.get(position).getUserType() != 1) {
-            holder.type.setVisibility(View.INVISIBLE);
-            if (list.get(position).getUserNickName().equals("")) {
-                holder.name.setText("未填写");
-            }else {
-                holder.name.setText("" + list.get(position).getUserNickName());
-            }
-        }else {
-            if (list.get(position).getUserName().equals("")) {
-                holder.name.setText("未填写");
-            }else {
-                holder.name.setText("" + list.get(position).getUserName());
-            }
-        }
-        if (list.get(position).getCollectOrNot().equals("true")) {
-            guanzu="  已收藏  ";
-//            holder.collect.setBackgroundResource(R.drawable.textview_back2);
-            list.get(position).setCollectOrNot(guanzu);
-        }else if (list.get(position).getCollectOrNot().equals("false")){
-            guanzu="  + 收藏  ";
-//            holder.collect.setBackgroundResource(R.drawable.textview_back1);
-            list.get(position).setCollectOrNot(guanzu);
-        }
-        holder.collect.setText(list.get(position).getCollectOrNot());
-        if (userInfo.getId() != list.get(position).getUserId()) {
-            holder.delete.setVisibility(View.INVISIBLE);
-        }
+
         Date date = TimeUtil.longToDate(list.get(position).getSendTime());
-        holder.sendTime.setText(""+TimeUtil.dateToString(date));
-
-        holder.title.setText(list.get(position).getSendTitle());
-        holder.content.setText(list.get(position).getSendContent());
-        holder.discussAmount.setText("评论·"+list.get(position).getDiscussAmount());
-        holder.likesAmount.setText("赞·"+list.get(position).getLikesAmount());
-        holder.collectAmount.setText("收藏·"+list.get(position).getCollectAmount());
-        if (list.get(position).getLikesOrNot().equals("true")) {
-            holder.img_like.setImageResource(R.mipmap.islike01);
-        }else if (list.get(position).getLikesOrNot().equals("false")){
-            holder.img_like.setImageResource(R.mipmap.like01);
-        }
-
-        holder.collect.setOnClickListener(new View.OnClickListener() {
+        holder.sendTime.setText(""+TimeUtil.dateToStrNoTimeDian(date));
+        holder.sendTimes.setText(""+TimeUtil.dateToStrNoDay(date));
+        holder.title.setText("标题："+list.get(position).getSendTitle());
+        holder.content.setText("内容："+list.get(position).getSendContent());
+        holder.ll_content.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final List<OkHttpUtils.Param> listP = new ArrayList<OkHttpUtils.Param>();
-                OkHttpUtils.Param idParam = new OkHttpUtils.Param("sendId", list.get(position).getSendId() + "");
-                OkHttpUtils.Param doctorsayParam = new OkHttpUtils.Param("collectorId", userId);
-                listP.add(idParam);
-                listP.add(doctorsayParam);
-                //post方式连接  url
-                OkHttpUtils.post(APPConfig.updateShareCollect, new OkHttpUtils.ResultCallback() {
-                    @Override
-                    public void onSuccess(Object response) {
-                        returnSTR = response.toString();
-                        if (returnSTR.equals("addcollect_success")) {
-//                            guanzu="  已关注  ";
-//                            collectAmount = collectAmount + 1;
-
-                            list.get(position).setCollectAmount(list.get(position).getCollectAmount()+1);
-                            list.get(position).setCollectOrNot("true");
-                            notifyDataSetChanged();
-                        }else if (returnSTR.equals("uncollect_success")){
-//                            guanzu="  + 关注  ";
-//                            collectAmount = collectAmount - 1;
-
-                            list.get(position).setCollectAmount(list.get(position).getCollectAmount()-1);
-                            list.get(position).setCollectOrNot("false");
-                            notifyDataSetChanged();
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Exception e) {
-                        Toast.makeText(context, "服务器连接失败，请重试！", Toast.LENGTH_SHORT).show();
-                    }
-                },listP);
-            }
-        });
-
-        holder.img_like.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final List<OkHttpUtils.Param> listP = new ArrayList<OkHttpUtils.Param>();
-                OkHttpUtils.Param idParam = new OkHttpUtils.Param("sendId", list.get(position).getSendId() + "");
-                OkHttpUtils.Param doctorsayParam = new OkHttpUtils.Param("likeserId", userId);
-                listP.add(idParam);
-                listP.add(doctorsayParam);
-                //post方式连接  url
-                OkHttpUtils.post(APPConfig.updateShareLikes, new OkHttpUtils.ResultCallback() {
-                    @Override
-                    public void onSuccess(Object response) {
-                        if (response.toString().equals("likes_success")) {
-                            list.get(position).setLikesAmount(list.get(position).getLikesAmount()+1);
-                            list.get(position).setLikesOrNot("true");
-                            notifyDataSetChanged();
-                        }else if (response.toString().equals("dislikes_success")){
-                            list.get(position).setLikesAmount(list.get(position).getLikesAmount()-1);
-                            list.get(position).setLikesOrNot("false");
-                            notifyDataSetChanged();
-                        }
-
-                    }
-
-                    @Override
-                    public void onFailure(Exception e) {
-                        Toast.makeText(context, "服务器连接失败，请重试！", Toast.LENGTH_SHORT).show();
-                    }
-                },listP);
-            }
-        });
-        holder.delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(context);
-                dialog.setTitle("温馨提示");
-                dialog.setMessage("是否删除该帖子？");
-                dialog.setCancelable(false);
-                dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        final List<OkHttpUtils.Param> listP = new ArrayList<OkHttpUtils.Param>();
-                        OkHttpUtils.Param doctorsayParam = new OkHttpUtils.Param("sendId", list.get(position).getSendId()+"");
-
-                        listP.add(doctorsayParam);
-                        //post方式连接  url
-                        OkHttpUtils.post(APPConfig.deleteShareSendBySendId, new OkHttpUtils.ResultCallback() {
-                            @Override
-                            public void onSuccess(Object response) {
-                                if (response.toString().equals("deleteShareSend_success")) {
-                                    list.remove(position);
-                                    notifyDataSetChanged();
-                                }else{
-
-                                }
-                            }
-
-                            @Override
-                            public void onFailure(Exception e) {
-                                Toast.makeText(context, "服务器连接失败，请重试！", Toast.LENGTH_SHORT).show();
-                            }
-                        },listP);
-                    }
-                });
-                dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
-                dialog.show();
-
-            }
-        });
-
-        holder.name.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                String shareStr1 = gson.toJson(list.get(position));
                 Intent intent = new Intent();
-                intent.setClass(context, UserShareHouseInfoActivity.class);
-                intent.putExtra("userId", list.get(position).getUserId()+"");
-                intent.putExtra("where", "ShareHouseListView");
-                ShareHouseActivity.removetv_FloatView();
-                context.startActivity(intent);
-            }
-        });
-        holder.img_myhead.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(context, UserShareHouseInfoActivity.class);
-                intent.putExtra("userId", list.get(position).getUserId()+"");
-                intent.putExtra("where", "ShareHouseListView");
-                ShareHouseActivity.removetv_FloatView();
+                intent.setClass(context, ClickShareInfoActivity.class);
+                intent.putExtra("shareStr", shareStr1);
                 context.startActivity(intent);
             }
         });
@@ -308,6 +152,7 @@ public class MySharesHistoryAdapter extends BaseAdapter {
         TextView name;
         TextView type;
         TextView sendTime;
+        TextView sendTimes;
         TextView collect;
         TextView title;
         TextView content;
@@ -317,5 +162,6 @@ public class MySharesHistoryAdapter extends BaseAdapter {
         TextView delete;
         ImageView img_like;
         ImageView img_myhead;
+        LinearLayout ll_content;
     }
 }

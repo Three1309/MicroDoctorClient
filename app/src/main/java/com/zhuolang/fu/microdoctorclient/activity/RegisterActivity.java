@@ -1,10 +1,12 @@
 package com.zhuolang.fu.microdoctorclient.activity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +16,10 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hyphenate.EMError;
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.exceptions.HyphenateException;
+import com.zhuolang.fu.microdoctorclient.DemoApplication;
 import com.zhuolang.fu.microdoctorclient.R;
 import com.zhuolang.fu.microdoctorclient.common.APPConfig;
 import com.zhuolang.fu.microdoctorclient.utils.OkHttpUtils;
@@ -246,6 +252,9 @@ public class RegisterActivity extends Activity{
                 case 0:
                     String result = (String)msg.obj;
                     if (result.equals("register_success")){
+                        //在环信注册
+                        register();
+
                         //注册成功
                         Toast.makeText(RegisterActivity.this,"注册成功，请登录",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent();
@@ -262,7 +271,58 @@ public class RegisterActivity extends Activity{
         }
 
     };
+    /**
+     * 在环信注册
+     */
+    public void register() {
+        final String username = phone;
+        final String pwd = "123456";
 
+        if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(pwd)) {
+            final ProgressDialog pd = new ProgressDialog(this);
+            pd.setMessage(getResources().getString(R.string.Is_the_registered));
+            pd.show();
+
+            new Thread(new Runnable() {
+                public void run() {
+                    try {
+                        // 调用sdk注册方法
+                        EMClient.getInstance().createAccount(username, pwd);
+                        runOnUiThread(new Runnable() {
+                            public void run() {
+                                if (!RegisterActivity.this.isFinishing())
+                                    pd.dismiss();
+                                // 保存用户名
+                                DemoApplication.getInstance().setCurrentUserName(username);
+                                Toast.makeText(getApplicationContext(), "注册成功", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
+                        });
+                    } catch (final HyphenateException e) {
+                        runOnUiThread(new Runnable() {
+                            public void run() {
+                                if (!RegisterActivity.this.isFinishing())
+                                    pd.dismiss();
+                                int errorCode=e.getErrorCode();
+                                if(errorCode== EMError.NETWORK_ERROR){
+                                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.network_anomalies), Toast.LENGTH_SHORT).show();
+                                }else if(errorCode == EMError.USER_ALREADY_EXIST){
+                                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.User_already_exists), Toast.LENGTH_SHORT).show();
+                                }else if(errorCode == EMError.USER_AUTHENTICATION_FAILED){
+                                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.registration_failed_without_permission), Toast.LENGTH_SHORT).show();
+                                }else if(errorCode == EMError.USER_ILLEGAL_ARGUMENT){
+                                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.illegal_user_name),Toast.LENGTH_SHORT).show();
+                                }else{
+                                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.Registration_failed) + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                    }
+                }
+            }).start();
+
+        }
+    }
 
 
 }

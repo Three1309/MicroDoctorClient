@@ -7,14 +7,20 @@ import android.os.Message;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.zhuolang.fu.microdoctorclient.R;
+import com.zhuolang.fu.microdoctorclient.adapter.MySharesCollectAdapter;
+import com.zhuolang.fu.microdoctorclient.adapter.MySharesHistoryAdapter;
 import com.zhuolang.fu.microdoctorclient.common.APPConfig;
+import com.zhuolang.fu.microdoctorclient.model.ShareDto;
 import com.zhuolang.fu.microdoctorclient.model.ShareHouseDto;
 import com.zhuolang.fu.microdoctorclient.model.UserInfo;
 import com.zhuolang.fu.microdoctorclient.utils.OkHttpUtils;
@@ -28,7 +34,7 @@ import java.util.List;
  * Created by wunaifu on 2017/4/28.
  */
 
-public class MySharesCollectActivity extends Activity implements View.OnClickListener{
+public class MySharesCollectActivity extends Activity implements AdapterView.OnItemClickListener,View.OnClickListener{
 
     private LinearLayout ll_myshare;
     private LinearLayout ll_mycollect;
@@ -61,6 +67,9 @@ public class MySharesCollectActivity extends Activity implements View.OnClickLis
 
     private ShareHouseDto shareHouseDto;
     private String shareHouseDtoStr;
+    private ListView listView;
+    private List<ShareDto> shareDtoList = new ArrayList<>();
+    private MySharesCollectAdapter mySharesHistoryAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,43 +83,23 @@ public class MySharesCollectActivity extends Activity implements View.OnClickLis
         userInfo = gson.fromJson(userDataStr, UserInfo.class);
         userId = userInfo.getId() + "";
 
-//        init();
-//
-//        initData();
+        init();
+        initData();
     }
-
     /**
      * 初始化控件
      */
     private void init(){
-        img_back = (ImageView) findViewById(R.id.img_usersharehouse_back);
-        tv_top = (TextView) findViewById(R.id.tv_usersharehouse_top);
-        tv_name = (TextView) findViewById(R.id.tv_usersharehouse_name);
-        tv_type = (TextView) findViewById(R.id.tv_usersharehouse_type);
-        tv_myjianjie = (TextView) findViewById(R.id.tv_usersharehouse_jianjie);
-        tv_myshares = (TextView) findViewById(R.id.tv_usersharehouse_myshares);
-        tv_mycollects = (TextView) findViewById(R.id.tv_usersharehouse_mycollects);
-        tv_myguanzus = (TextView) findViewById(R.id.tv_usersharehouse_myguanzus);
-        tv_mydiscusses = (TextView) findViewById(R.id.tv_usersharehouse_mydiscusses);
-        tv_likesAmount = (TextView) findViewById(R.id.tv_usersharehouse_likesamount);
-        tv_collectAmount = (TextView) findViewById(R.id.tv_usersharehouse_collectamount);
-        tv_discussAmount = (TextView) findViewById(R.id.tv_usersharehouse_discussamount);
+        img_back = (ImageView) findViewById(R.id.img_mysharescollect_back);
+        tv_top = (TextView) findViewById(R.id.tv_mysharescollect_top);
 
-        ll_myshare = (LinearLayout) findViewById(R.id.ll_usersharehouse_myshares);
-        ll_mydiscuss = (LinearLayout) findViewById(R.id.ll_usersharehouse_mydiscusses);
-        ll_mycollect = (LinearLayout) findViewById(R.id.ll_usersharehouse_mycollects);
+        listView = (ListView) findViewById(R.id.mysharescollectlistview);
+
+        listView.setOnItemClickListener(this);
 
         if (!userId.equals(getIntentUserId)) {
-            tv_top.setText("TA的医言堂社区");
-            tv_myshares.setText("TA的帖子");
-            tv_mycollects.setText("TA的收藏");
-            tv_myguanzus.setText("TA的关注");
-            tv_mydiscusses.setText("TA的评论");
+            tv_top.setText("TA的收藏");
         }
-
-        ll_mycollect.setOnClickListener(this);
-        ll_myshare.setOnClickListener(this);
-        ll_mydiscuss.setOnClickListener(this);
         img_back.setOnClickListener(this);
     }
     /**
@@ -126,18 +115,15 @@ public class MySharesCollectActivity extends Activity implements View.OnClickLis
             @Override
             public void run() {
                 //post方式连接  url
-                OkHttpUtils.post(APPConfig.findUserShareInfo, new OkHttpUtils.ResultCallback() {
+                OkHttpUtils.post(APPConfig.findMyCollectShareInfo, new OkHttpUtils.ResultCallback() {
                     @Override
                     public void onSuccess(Object response) {
                         Message message = new Message();
                         message.what = 0;
                         message.obj = response;
-                        Log.d("testrun", "UserShareHouseInfoActivity response.toString()=" + response.toString());
-                        if (response.toString().equals("nodata")) {
-                            CustomWaitDialog.miss();
-                        }else {
-                            handler.sendMessage(message);
-                        }
+                        Log.d("testrun", "MySharesHistoryActivity response.toString()=" + response.toString());
+
+                        handler.sendMessage(message);
                     }
 
                     @Override
@@ -154,19 +140,40 @@ public class MySharesCollectActivity extends Activity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-//            case R.id.ll_usersharehouse_mycollects:
-
-
-//                break;
+            case R.id.img_mysharescollect_back:
+                finish();
+                break;
         }
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+    }
     private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             String result = msg.obj.toString();
+            Log.d("testrun1", "mycollect result=" + result);
+            CustomWaitDialog.miss();
+//            shareDtoList = gson.fromJson(result, new TypeToken<List<ShareDto>>() {}.getType());
+            switch (msg.what) {
+                case 0:
+                    if (result.equals("nodata")) {
+                        Toast.makeText(MySharesCollectActivity.this, "没有收藏的帖子", Toast.LENGTH_SHORT).show();
+                    }else {
+                        shareDtoList = gson.fromJson(result, new TypeToken<List<ShareDto>>() {}.getType());
+                        if (shareDtoList != null && shareDtoList.size() > 0) {
+                            mySharesHistoryAdapter = new MySharesCollectAdapter(MySharesCollectActivity.this,shareDtoList );
+                            listView.setAdapter(mySharesHistoryAdapter);
+                        }else {
 
-                CustomWaitDialog.miss();
+                        }
+
+                    }
+                    break;
+
+            }
 
 
         }
@@ -176,11 +183,11 @@ public class MySharesCollectActivity extends Activity implements View.OnClickLis
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+
             finish();
             return true;
         }
         return super.onKeyDown(keyCode, event);
     }
-
 }
 

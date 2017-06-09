@@ -20,10 +20,34 @@ public class TimeUtil {
         return dateStr;
 	}
 
+    public static String dateToStrNoDay(Date date){
+        String dateStr = "";
+        //format的格式可以任意
+        DateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+//        DateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd HH/mm/ss");
+        try {
+            dateStr = sdf.format(date);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return dateStr;
+    }
+
     public static String dateToStrNoTime(Date date){
         String dateStr = "";
         //format的格式可以任意
         DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            dateStr = sdf.format(date);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return dateStr;
+    }
+    public static String dateToStrNoTimeDian(Date date){
+        String dateStr = "";
+        //format的格式可以任意
+        DateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
         try {
             dateStr = sdf.format(date);
         } catch (Exception e) {

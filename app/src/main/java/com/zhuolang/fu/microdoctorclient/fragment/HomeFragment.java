@@ -11,11 +11,15 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.zhuolang.fu.microdoctorclient.R;
 import com.zhuolang.fu.microdoctorclient.activity.AllDoctorListActivity;
 import com.zhuolang.fu.microdoctorclient.activity.AppointmentDoctorOfficeActivity;
+import com.zhuolang.fu.microdoctorclient.activity.AppointmentMeHistoryListActivity;
+import com.zhuolang.fu.microdoctorclient.activity.AppointmentMeListActivity;
+import com.zhuolang.fu.microdoctorclient.activity.HealthKnowledgeListActivity;
 import com.zhuolang.fu.microdoctorclient.activity.MenuActivity;
 import com.zhuolang.fu.microdoctorclient.activity.MyAppointHistoryListActivity;
 import com.zhuolang.fu.microdoctorclient.activity.MyInfoActivity;
@@ -38,6 +42,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private ImageView img_mynowappointment;
     private ImageView img_myappointmenthist;
     private ImageView img_sharehouse;
+    private ImageView img_askdoctor;
+    private ImageView img_health;
+    private ImageView img_appme;
+    private ImageView img_seepatient;
 
     private String userDataStr;
     private UserInfo userInfo;
@@ -64,7 +72,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         img_mynowappointment = (ImageView) view.findViewById(R.id.image_fhome_mynowappointment);
         img_myappointmenthist = (ImageView) view.findViewById(R.id.image_fhome_appointhistory);
         img_sharehouse = (ImageView) view.findViewById(R.id.image_fhome_sharehouse);
+        img_askdoctor = (ImageView) view.findViewById(R.id.image_fhome_asklist);
+        img_health = (ImageView) view.findViewById(R.id.image_fhome_health);
+        img_appme = (ImageView) view.findViewById(R.id.image_fhome_appointmentme);
+        img_seepatient = (ImageView) view.findViewById(R.id.image_fhome_seepatient);
 
+        img_appme.setOnClickListener(this);
+        img_seepatient.setOnClickListener(this);
+        img_health.setOnClickListener(this);
+        img_askdoctor.setOnClickListener(this);
         img_sharehouse.setOnClickListener(this);
         img_myappointmenthist.setOnClickListener(this);
         img_mynowappointment.setOnClickListener(this);
@@ -100,6 +116,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             case R.id.image_fhome_showdoctor:
                 Intent intent = new Intent();
                 intent.setClass(getActivity(), AllDoctorListActivity.class);
+//                intent.putExtra("where","alldoctor");
                 startActivity(intent);
                 break;
             case R.id.image_fhome_appointmentdoctor:
@@ -121,6 +138,37 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 Intent intent4 = new Intent();
                 intent4.setClass(getActivity(), ShareHouseActivity.class);
                 startActivity(intent4);
+                break;
+            case R.id.image_fhome_asklist:
+                Intent intent5 = new Intent();
+                intent5.setClass(getActivity(), AllDoctorListActivity.class);
+//                intent5.putExtra("where","askdoctor");
+                startActivity(intent5);
+                break;
+            case R.id.image_fhome_health:
+                Intent intent6 = new Intent();
+                intent6.setClass(getActivity(), HealthKnowledgeListActivity.class);
+                startActivity(intent6);
+                break;
+            case R.id.image_fhome_appointmentme:
+                if(SharedPrefsUtil.getValue(getActivity(), APPConfig.TYPE, "").equals("1")){
+                    Intent intent7 = new Intent();
+                    intent7.setClass(getActivity(), AppointmentMeListActivity.class);
+                    startActivity(intent7);
+                }else {
+                    Toast.makeText(getContext(),"这是医师的权限功能,您没有访问权限",Toast.LENGTH_SHORT).show();
+                }
+
+                break;
+            case R.id.image_fhome_seepatient:
+                if(SharedPrefsUtil.getValue(getActivity(), APPConfig.TYPE, "").equals("1")){
+                    Intent intent8 = new Intent();
+                    intent8.setClass(getActivity(), AppointmentMeHistoryListActivity.class);
+                    startActivity(intent8);
+                }else {
+                    Toast.makeText(getContext(),"这是医师的权限功能,您没有访问权限",Toast.LENGTH_SHORT).show();
+                }
+
                 break;
 
         }

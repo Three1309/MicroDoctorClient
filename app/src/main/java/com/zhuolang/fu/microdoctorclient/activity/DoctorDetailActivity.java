@@ -1,6 +1,7 @@
 package com.zhuolang.fu.microdoctorclient.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.zhuolang.fu.microdoctorclient.R;
@@ -24,6 +26,7 @@ public class DoctorDetailActivity extends Activity {
     private String userDataStr;
     private UserInfo userInfo;
 
+    private TextView ask;
     private TextView tv_name;
     private TextView tv_nickname;
     private TextView tv_age;
@@ -58,6 +61,7 @@ public class DoctorDetailActivity extends Activity {
         
         img_back = (ImageView) findViewById(R.id.img_doctordetail_back);
 
+        ask = (TextView) this.findViewById(R.id.doctordetail_tv_ask);
         tv_phone = (TextView) this.findViewById(R.id.doctordetail_tv_account);
         tv_name = (TextView) this.findViewById(R.id.doctordetail_tv_name);
         tv_nickname = (TextView) this.findViewById(R.id.doctordetail_tv_nickname);
@@ -78,6 +82,20 @@ public class DoctorDetailActivity extends Activity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        ask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (userInfo.getPhone().equals(SharedPrefsUtil.getValue(DoctorDetailActivity.this, APPConfig.ACCOUNT, ""))) {
+                    Toast.makeText(DoctorDetailActivity.this,"不能向自己咨询",Toast.LENGTH_SHORT).show();
+                }else {
+                    Intent intent = new Intent(DoctorDetailActivity.this, ChatToDoctorActivity.class);
+                    intent.putExtra("username", userInfo.getPhone());
+                    intent.putExtra("username1", userInfo.getName());
+                    startActivity(intent);
+                }
+
             }
         });
     }

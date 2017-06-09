@@ -35,6 +35,7 @@ public class AppointDoctorInfoActivity extends Activity {
     private EditText et_disease;
     private DatePicker datepicker;
     private TextView tv;
+    private TextView tv_zixun;
     private Button bt_appoint;
     private Button bt_cancel;
 
@@ -44,13 +45,14 @@ public class AppointDoctorInfoActivity extends Activity {
     private UserInfo user;
     private String patientId;//获取当前用户user的id然后转为String类型
     private String doctorId;
-
+    Gson gson = new Gson();
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointmentdoctor_info);
+        doctor = gson.fromJson(getIntent().getStringExtra("doctorStr"), UserInfo.class);
         init();
         initMotion();
     }
@@ -60,6 +62,7 @@ public class AppointDoctorInfoActivity extends Activity {
         et_disease = (EditText) findViewById(R.id.et_disease);
         datepicker = (DatePicker) findViewById(R.id.datepicker);
         tv = (TextView) findViewById(R.id.tv);
+        tv_zixun = (TextView) findViewById(R.id.tv_appointmentdoctorinfo_zixun);
         bt_appoint = (Button) findViewById(R.id.bt_appoint);
         bt_cancel = (Button) findViewById(R.id.bt_cancel);
     }
@@ -71,7 +74,15 @@ public class AppointDoctorInfoActivity extends Activity {
                 finish();
             }
         });
-
+        tv_zixun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AppointDoctorInfoActivity.this, ChatToDoctorActivity.class);
+                intent.putExtra("username", doctor.getPhone()+"");
+                intent.putExtra("username1", doctor.getName());
+                startActivity(intent);
+            }
+        });
         datepicker.init(datepicker.getYear(), datepicker.getMonth(), datepicker.getDayOfMonth(), new DatePicker.OnDateChangedListener() {
             @Override
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
@@ -145,10 +156,10 @@ public class AppointDoctorInfoActivity extends Activity {
 
     public void getData() {
         String userData = SharedPrefsUtil.getValue(AppointDoctorInfoActivity.this, APPConfig.USERDATA, "读取失败");
-        Gson gson = new Gson();
+
         user = gson.fromJson(userData, UserInfo.class);
         patientId = "" + user.getId();
-        doctor = gson.fromJson(getIntent().getStringExtra("doctorStr"), UserInfo.class);
+
         doctorId = "" + doctor.getId();
         disease = et_disease.getText().toString().trim();
     }

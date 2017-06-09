@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#F0F3F6">
+    <LinearLayout
+        android:background="#bd2ea3fe"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="@string/app_name"
+            android:textSize="22sp"
+            android:textColor="#fdfdfd"
+            android:layout_gravity="center"/>
+    </LinearLayout>
     <ScrollView
         android:background="#F0F3F6"
         android:layout_width="match_parent"
@@ -45,6 +60,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent" />
                     <ImageView
+                        android:id="@+id/image_fhome_health"
                         android:src="@drawable/a2"
                         android:layout_weight="1"
                         android:layout_width="0dp"
@@ -80,7 +96,7 @@
                     <TextView
                         android:textSize="11sp"
                         android:gravity="center"
-                        android:text="在线问诊"
+                        android:text="健康资讯"
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="match_parent" />
@@ -109,7 +125,7 @@
                     android:id="@+id/image_fhome_asklist"
                     android:background="@color/white"
                     android:layout_weight="1"
-                    android:src="@drawable/a5"
+                    android:src="@drawable/a55"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" />
                 <TextView
@@ -129,6 +145,27 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+                <LinearLayout
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp">
+                    <TextView
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:text="病人权限"
+                        android:textSize="9sp"
+                        android:layout_width="0dp"
+                        android:layout_height="12dp" />
+                    <TextView
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:text="医师权限"
+                        android:textSize="9sp"
+                        android:layout_width="0dp"
+                        android:layout_height="12dp" />
+                </LinearLayout>
+
                 <LinearLayout
                     android:layout_marginTop="0dp"
                     android:background="@color/white"
@@ -151,13 +188,13 @@
                         android:layout_height="wrap_content" />
                     <ImageView
                         android:background="@color/white"
-                        android:id="@+id/image_fhome_myask"
+                        android:id="@+id/image_fhome_appointmentme"
                         android:layout_weight="1"
                         android:src="@drawable/a9"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content" />
                     <ImageView
-                        android:id="@+id/image_fhome_mydongtai"
+                        android:id="@+id/image_fhome_seepatient"
                         android:background="@color/white"
                         android:src="@drawable/a10"
                         android:layout_weight="1"
@@ -186,14 +223,14 @@
                     <TextView
                         android:textSize="11sp"
                         android:gravity="center"
-                        android:text="我的问诊"
+                        android:text="预约我的"
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="match_parent" />
                     <TextView
                         android:textSize="11sp"
                         android:gravity="center"
-                        android:text="我的咨询"
+                        android:text="看诊历史"
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="match_parent" />
@@ -204,5 +241,5 @@
     </ScrollView>
 
 
-</RelativeLayout>
+</LinearLayout>
 

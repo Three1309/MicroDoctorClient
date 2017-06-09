@@ -1,10 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="#F0F3F6">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
 
+    <LinearLayout
+        android:background="#bd2ea3fe"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
 
-</RelativeLayout>
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="@string/app_name"
+            android:textSize="22sp"
+            android:textColor="#fdfdfd"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <!--<LinearLayout-->
+        <!--style="@style/wrap_layout" >-->
+        <!--&lt;!&ndash; 上圆角&ndash;&gt;-->
+        <!--<LinearLayout-->
+            <!--android:id="@+id/fshare_ll_conversation"-->
+            <!--style="@style/top_layout">-->
+            <!--<TextView style="@style/usertext"-->
+                <!--android:text="会话列表" />-->
+            <!--<ImageView style="@style/img_arrow"/>-->
+        <!--</LinearLayout>-->
+
+        <!--&lt;!&ndash; 分割线 &ndash;&gt;-->
+        <!--<View style="@style/bg_line"/>-->
+        <!--&lt;!&ndash; 无圆角&ndash;&gt;-->
+        <!--<LinearLayout-->
+            <!--android:id="@+id/fshare_ll_contact"-->
+            <!--style="@style/mid_layout">-->
+            <!--<TextView-->
+                <!--style="@style/usertext"-->
+                <!--android:text="通讯录" />-->
+            <!--<ImageView style="@style/img_arrow"/>-->
+        <!--</LinearLayout>-->
+        <!--<View style="@style/bg_line"/>-->
+        <!--&lt;!&ndash; 下圆角&ndash;&gt;-->
+        <!--<LinearLayout-->
+            <!--android:id="@+id/fshare_ll_newfriend"-->
+            <!--style="@style/bottom_layout">-->
+            <!--<TextView-->
+                <!--style="@style/usertext"-->
+                <!--android:text="好友请求" />-->
+            <!--<ImageView style="@style/img_arrow"/>-->
+        <!--</LinearLayout>-->
+
+    <!--</LinearLayout>-->
+
+</LinearLayout>
 
