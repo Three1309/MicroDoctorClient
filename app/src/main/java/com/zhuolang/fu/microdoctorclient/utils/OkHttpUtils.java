@@ -1,8 +1,14 @@
 package com.zhuolang.fu.microdoctorclient.utils;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.TextUtils;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import com.google.gson.internal.$Gson$Types;
+import com.google.gson.reflect.TypeToken;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.FormEncodingBuilder;
 import com.squareup.okhttp.OkHttpClient;
@@ -17,7 +23,10 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.net.CookieManager;
 import java.net.CookiePolicy;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 /**
  * Description : OkHttp网络连接封装工具类 
@@ -31,7 +40,7 @@ public class OkHttpUtils {
     private static OkHttpUtils mInstance;  
     private OkHttpClient mOkHttpClient;
     private Handler mHandler;
-  
+    private static Gson gson = null;
     private OkHttpUtils() {  
         /** 
          * 构建OkHttpClient 
@@ -241,7 +250,108 @@ public class OkHttpUtils {
             this.value = value;  
         }  
   
-    }  
-  
-  
+    }
+
+
+    /**
+     * json转Bean
+     */
+    public static <T> T getEntityFromJson(String gsonString, Class<T> cls) {
+        T t = null;
+        try {
+            if (gson != null && !TextUtils.isEmpty(gsonString)) {
+                //过滤gson
+                gsonString = gsonString.trim();
+                if (gsonString.startsWith("ufeff")) {
+                    gsonString = gsonString.substring(1);
+                }
+                t = gson.fromJson(gsonString, cls);
+            }
+            return t;
+        } catch (Exception e) {
+        }
+        return null;
+    }
+    /**
+     * json转成ArrayList
+     */
+    public static <T> ArrayList<T> getListFromJson(String gsonString, Class<T> tClass) {
+        ArrayList<T> list;
+        try {
+            if (gson != null && !TextUtils.isEmpty(gsonString)) {
+                //过滤gson
+                gsonString = gsonString.trim();
+                if (gsonString.startsWith("ufeff")) {
+                    gsonString = gsonString.substring(1);
+                }
+                TypeToken<ArrayList<T>> tt = new TypeToken<ArrayList<T>>() {
+                };
+                list = gson.fromJson(gsonString, tt.getType());
+                return list;
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    public static <T> List<T> getObjectList(String jsonString, Class<T> cls){
+        List<T> list = new ArrayList<T>();
+        try {
+            Gson gson = new Gson();
+            JsonArray arry = new JsonParser().parse(jsonString).getAsJsonArray();
+            for (JsonElement jsonElement : arry) {
+                list.add(gson.fromJson(jsonElement, cls));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    /**
+     * 对象转成Json
+     */
+    private static <T> String getJsonFromEntity(T t) {
+        String result = "";
+        if (gson != null && t != null) {
+            result = gson.toJson(t);
+        }
+        return result;
+    }
+
+
+    /**
+     * Json转成map的
+     */
+    private static <T> HashMap<String, T> GsonToMaps(String gsonString) {
+        HashMap<String, T> map = null;
+        if (gson != null && !TextUtils.isEmpty(gsonString)) {
+            map = gson.fromJson(gsonString, new TypeToken<Map<String, T>>() {
+            }.getType());
+        }
+        return map;
+    }
+
+    /**
+     * 集合转成Json
+     */
+    private static <T> String getJsonFromList(List<T> t) {
+        String result = "";
+        if (gson != null && t != null) {
+            result = gson.toJson(t);
+        }
+        return result;
+    }
+
+    /**
+     * map转成Json
+     */
+    public static String getJsonFromMap(HashMap<String, String> map) {
+        String result = "";
+        if (gson != null && map != null) {
+            result = gson.toJson(map);
+        }
+        return result;
+    }
+
 }  
